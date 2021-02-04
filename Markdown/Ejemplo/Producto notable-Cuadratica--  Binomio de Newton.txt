@@ -1,0 +1,14 @@
+(a+b)^2 = a^2 + 2ab + b^2
+
+Funcion en R
+
+X = function(a,b){
+  a^2+2*a*b+b^2
+}
+
+
+Binomio de Newton
+
+binomioNewton = function(a,b,n){
+  cumsum(choose(n,(0:n))*a^{n-(0:n)}*b^(0:n))[n+1]
+}

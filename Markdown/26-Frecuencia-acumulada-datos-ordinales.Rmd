@@ -1,0 +1,51 @@
+---
+title: "Odered"
+author: "Facundo"
+date: "24/7/2020"
+output: html_document
+---
+
+```{r}
+notas = ordered(c("S","A","N","Ex","S","S","Ex","Ex","N","A","A","A","A","N","S"), levels = c("S","A","N","Ex"))
+
+table(notas)
+```
+
+4 estudiantes con S o menos.
+9 han obtenido A o menos
+12 estudiantes N o menos
+15 15 estudiante Ex o menos. 
+La frecuencia acumulada de Ex es 15
+
+## Frecuencia relativa acumulada 
+(frecuencia absoluta+frecuencia absoluta anterior / el total)
+
+
+Esta ud contento con el trato ofrecido por los trabajadores del establecimiento?
+Respuestas 1<2<3<4<5
+```{r}
+set.seed(2018)
+clientes =sample(1:5,50,replace=TRUE)
+clientes
+set.seed=NULL
+```
+
+
+```{r}
+fAbs = table(notas) # Frecuencia absoluta
+cumsum(fAbs) #Frecuencia absoluta acumulada
+```
+
+```{r}
+cumsum(prop.table(fAbs)) # Frecuencia Relativa Acumuladas
+```
+
+```{r}
+barplot(cumsum(fAbs),main = "Grafico frecuencia absoluta\n acumulada")`
+```
+
+```{r}
+# no se puede hacer
+#prop.table(cumsum(table(notas)))
+```
+

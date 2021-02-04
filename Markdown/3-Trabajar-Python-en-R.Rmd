@@ -1,0 +1,78 @@
+---
+title: "con python"
+author: "prueba2"
+date: "23/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+Asi traemos OS de python para trabajar en R
+
+
+```{r}
+# ponemos el path de anaconda para que tome python de ahi- sino toma una version corta de python por defecto
+
+library(reticulate)
+use_python("/C:/Users/Facundo/anaconda3/python.exe")
+os<-import("os")
+os$listdir(".")
+```
+
+
+
+```{r}
+source_python("suma.py")
+add(3,4)
+```
+```{r}
+np<- import("numpy", convert = FALSE)#importar librerya de python
+
+x<-np$array(c(1:4))
+sum<- x$cumsum()
+print(sum)
+
+py_to_r(sum) #pasar de python a R
+
+```
+```{r}
+py_help(os$chdir)
+```
+
+## Array
+```{r}
+a<- np_array(c(1:10), dtype="float16")
+a
+```
+
+
+
+
+
+
+
+
+

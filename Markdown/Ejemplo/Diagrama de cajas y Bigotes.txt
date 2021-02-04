@@ -1,0 +1,17 @@
+Diagrama de Caja o Box plot
+esun tipo de grafico que basicamente, remarca 5 valores estadisticos:
+
+-La mediana, Linea gruesa que divide la caja.
+-El primer y tercer cuartil, que son los lados inferior y superior.
+La altura de la caga es el rango intercuartilico.
+-Los extremos, los valores, son los bigotes del grafico.
+Si n y M son el lminimo y el maxima dela variable cuantitativa,
+los extremos se calculan del siguiente modo:
+(B=Bigote)
+	Binf= max{m,Q_0.25-1.5(Q_0.75 - Q_0.25)}
+
+	Bsup= min{m,Q_0.25-1.5(Q_0.75 - Q_0.25)}
+
+
+-Valores atipicos o outliers, son los que estan mas alla de los bigotes.
+Se marcan como puntos aislados.

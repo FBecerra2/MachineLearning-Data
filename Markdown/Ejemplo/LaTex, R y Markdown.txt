@@ -1,0 +1,36 @@
+################################################################################################
+LaTex										################
+################################################################################################
+
+# Titulo Grande
+##Titulo mas chico
+###Titulo mas chico
+
+$$A \cdot B$$					-Para escribir Formulas buscar en el Word de las formulas
+
+
+$$A=
+\begin{pmatrix}
+1&2&3&4\\
+4&3&2&1\\
+0&1&0&2\\
+3&0&4&0
+\end{pmatrix}
+B=
+\begin{pmatrix}
+4&3&2&1\\ 
+0&3&0&4\\
+1&2&3&4\\
+0&1&0&2
+\end{pmatrix}
+$$						-Graficar matrices
+
+
+
+################################################################################################
+R										################
+################################################################################################
+
+round(sqrt(VECTOR),2)				-Raiz cuadrada de un VECTOR, redondeado 2 numeros atras de la coma
+sum(VECTOR)					-Suma los elementos del vector
+sort(VECTOR)					-Ordena el vector

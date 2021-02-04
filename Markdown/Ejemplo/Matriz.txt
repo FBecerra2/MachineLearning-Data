@@ -1,0 +1,27 @@
+matrix(vector, nrow = n (numero de filas), byrow =x (si se iguala a TRUE se construye por columnas))
+
+M = matrix(1:12, nrow = 4)
+
+M = matrix(4:20, nrow = 3,ncol=5)
+
+
+rbind(M, c(1,2,3),c(-1,-2,-3))  		-Agrega filas a la matriz
+rbind(c(1,2,3),c(-1,-2,-3))    			-Crea matrices en filas
+cbind(c(1,2,3),c(-1,-2,-3))   			-Crea matriz por columna
+diag(c(1,2,3,4))             			-Crea una diagon con numero 1,2,3,4
+
+
+#diag(matriz) obtiene la diagonal de la matriz
+#nrow(matriz) da el nuemro de filas de la matriz
+#ncol(matriz) da el numero de columnas de la matriz
+#dim(matriz) dimensiones d ela matriz
+#sum(matriz) suma de todas las entradas de la matriz
+#prod(matriz) producto de las entrada de la matriz
+#mean(matriz) media aritmetica de la matriz
+#colSums(matriz) suma por columnas de la matriz
+#rowSum(matriz) suma por filas de la matriz
+#rowMeans(matriz) media aritmetica de las filas
+#colMeans(matriz) media aritmetica de las columnas
+det(matriz)  determinante de la matriz
+qr(matriz)$rank  rango de la matriz
+solve(matriz) inversa de una matriz invertible

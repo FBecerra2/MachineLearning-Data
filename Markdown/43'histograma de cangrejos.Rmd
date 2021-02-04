@@ -1,0 +1,18 @@
+---
+title: "Histogramasde cangrejo"
+author: "Facundo"
+date: "15/8/2020"
+output: html_document
+---
+```{r}
+hist(cw1,breaks = L,right = FALSE, main = "Histograma de las anchuras de los cangrejos")
+```
+
+```{r}
+hist(cw1,breaks = L,right = FALSE,plot=FALSE)
+```
+
+
+```{r}
+histAbs(cw1,L)
+```

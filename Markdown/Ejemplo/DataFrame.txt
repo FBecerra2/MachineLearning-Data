@@ -1,0 +1,116 @@
+################################################################################################
+Cargar DataFrame								################
+################################################################################################
+
+df = iris		-Cargar Dataframe de R
+read.table("data/bulls.dat") -Cargar Dataframe local
+read.table(textConnection(getURL("URL HTTPS"))) - Cargar DataFrame desde URL
+read.csv() 		-Importa formato CSV
+read.xls() o read.xlsx() -Para importar excel
+read.mtb() 		 -Para importar tablas de datos Minitab."Se necesita el paquete foreign"
+read.spss()		-Importar tablas de datos SPSS, Se necesita el paquete foreign
+write.table(df, file='') -Para exportar un data frame a un fichero
+head(df, 5)		-Muestra los primeros 5 row
+tail(df, 5) 		-Muestra los ultimos 5 row
+names(df)   		-Nombre de las columnas del data frame "Igual a colname"
+rownames(df)		-Nombre de las Filas
+str(df)  		-Muestra datos del Data Frame
+dimnames(df)		-Devuelve rownames y names
+nrow(df)    		-Numero de filas  
+ncol(df)    		-Numero de Columnas
+dim(df)     		-Numero de filas y columnas
+df$Petal.Length[1:10] 	-Arma un vector con los 10 primeros numeros del df iris columna Petal.Length
+header = FALSE		-Header es para los nombres de columnas por defecto esta en TRUE si el data set tiene titulo incluido
+col.names= c("Breed","sale_price") - Col.names especifica los nombres de las coumnas
+sep = "," 		-Es para especificar el separador
+dec = "."		-Separador decimal
+stringsAsFactors = FALSE -Prohibir la transformacion de las columnas de palabras
+#na.rm=TRUE 		-Para que no devuelva NA en un valor NA
+
+################################################################################################
+Crear DataFrame									################
+################################################################################################
+gender =  c("H","M","H","M","M")
+age =     c(12, 43, 45, 76, 87)
+family =  c( 2,  3,  4,  4,  1)
+
+df = data.frame(genero=gender, edad=age, familia=family, stringsAsFactors = TRUE)
+
+row.names(df) = c("Juan","Juana","Jose","Josefa","Maria")
+df
+str(df)
+
+#rbind 						-RowBind usa la ultima fila disponible
+#cbind 						-ColBind
+#df$NOMBREcolumna c(dato1,dato2,dato3) 		-Agrega una columna con esos datos
+
+################################################################################################
+Transformar Datos								################
+################################################################################################
+
+#as.character(df) / (df$columna) 		-Pasa a palabras los datos
+#as.factor   (df) / (df$columna) 		-Pasa a factor los datos
+#as.interger (df) / (df$columna)		-Pasa a numeros enteros los datos
+#as.numeric  (df) / (df$columna)		-Pasa a numeros reales los datos
+
+################################################################################################
+Borrar Datos Data Frame								################
+################################################################################################
+
+droplevels(df) 					-Borra los niveles sobrantes de todos los factores.
+
+
+################################################################################################
+Select de datos									################
+################################################################################################
+
+select(df, parametros)Que queremos extraer de un DF
+  parametros:
+           #starts_with("x") 			-Extraer del DF las variables cuyos nombres empiezan con "x"
+           #ends_with("x") 			-Extraer del DF las variables cuyos nombres terminen con "x"           
+           #subset(df, condicion,select = Columnas) -Extrae las filas que cumplen la condicion- Natural de R
+
+
+supply(df, funcion) 				-Para aplicar una funcion a todas las columnas de un DF
+    
+
+attach(mtcars)					-Hacer esto en la consola para pasarlo a variable global
+detach(mtcars)					-Con esto lo sacamos de la variable Global
+
+
+
+
+################################################################################################
+Consultas DataFrame								################
+################################################################################################
+#¿Cuantos deportistas aparecen en el data frame?
+nrow(df) #2311 deportistas
+
+#¿Cuantos han ganado medallas de oro, cuantos de plata y cuantos de bronce?
+nrow(df[df$Medal=="Gold",]) #Buscar medallas de ORO 774
+nrow(df[df$Medal=="Silver",]) #Buscar medallas de ORO 773
+nrow(df[df$Medal=="Bronze",]) #Buscar medallas de ORO 764
+
+#¿En cuantos lugares se han hecho olimpiadas de invierno?
+lug = factor(df$NOC)
+length(levels(lug)) #45 lugares
+
+#¿Cuantos hombres y cuantas mujeres hay?
+nrow(df[df$Event.gender=="M",]) #Male 1386
+nrow(df[df$Event.gender=="W",]) #Famale 802
+nrow(df[df$Event.gender=="X",]) #X 123
+
+#¿En qué año participaron más deportistas?
+library(tidyverse) #Para disponer de las funciones del paquete ne tu entorno de trabajo. 
+df %>% #Primero llamo a los datos. Uso el símbolo %>% para conectar las operaciones. 
+  group_by(Year)%>% #Luego indico que quiero un grupo por cada valor único en Estados, podría agupar por más variables si las tuviera/quisiera.
+  tally()  #tally cuenta cuantos elementos hay en cada grupo. 
+
+df%>%count(Year,sort = TRUE)
+
+
+#¿En qué año participaron más deportistas?
+df = read.csv("data/medals.csv",header = TRUE)
+library(tidyverse)
+df%>%filter(Year>=1960 & Year <=1996, Medal == "Gold")%>%count(NOC,sort = TRUE)
+

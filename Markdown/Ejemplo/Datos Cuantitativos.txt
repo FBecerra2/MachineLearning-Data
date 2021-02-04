@@ -1,0 +1,23 @@
+Datos Cuantitativos: 
+-Son cantidades que se representan mediante numeros.
+##Datos Continuos: Los que se pueden medir con presicion infinita, peso ,altura o tiempo.
+Pertenecen a un intervalo entre un minimo y un maximo.
+
+##Datos discretos> Pueden tomar un conjunto acotado de valores. 
+###Colores de un gato, 1, 2 ,3 colores.
+###Numeros de invididuos que viven en una poblacion.(No pueden tener decimales)
+ 
+
+
+Variable Cuantitativa:
+Se puede usar:
+#Todo lo de variables ordinales
+#Frecuencias, relativa, ablsoluta, relativa
+#Sumar, media , medidas de dispersion, Desviacion
+#Separar el dato con los datos brutos o agruparlos en clases o intervalos
+
+
+SOLO SE ESTUDIAN LOS DATOS QUE ESTAN, LOS QUE NOS INTERESA
+
+
+

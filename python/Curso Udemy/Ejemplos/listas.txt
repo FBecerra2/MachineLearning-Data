@@ -1,0 +1,26 @@
+######################################################################################
+LISTAS										 #####
+######################################################################################
+
+L1=['v','a','l','o','r','e','s']	-Lista con valores iniales
+L2=['1','2','3','4','5','6','7']	-Lista con valores enteros
+L3=['v','a','1','2','3','4','s']	-Lista con valores Heteregeneos
+
+Lx					-Muestra la lista
+Lx[0]					-[X] el numero indicado en el medio es la posicion en la lista python arrana en 0
+Lx[4]= 3				-Cambiando el valor de la posicion [4] a 3
+Lx[0:2]					-Accede al rango seleccionado menos a la ultima posicion
+Lx.append(8)				-Agrega una numero al final de la lista
+Lx.remove(3)				-Elimina el nimero 3 que este primero en la lista
+Lx.count(0)				-Indica cuantos 0 hay en la lista
+Lx.index(2)				-En que posicion se encuentra el numero 2
+len(Lx)					-Longitud de la lista
+Lx[1::2]				-Salta de 1 en uno sin tomar el primer numero
+Lx[::2]					-Salta de 1 en uno empezando de 0
+Lx[-1]					-Devuelve el ultimo numero de la lista
+x in Lx					-Si se encuentra la x en la lista Lx
+
+
+
+
+

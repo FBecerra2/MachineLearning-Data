@@ -1,0 +1,133 @@
+######################################################################################
+FOR										 #####
+######################################################################################
+for numero in L:
+    print(numero)			-Recorre L mostrando los numeros que contiene hasta que no hay mas
+
+
+for x in range(0,10):
+    print(x)				-Recorre de 0 a 10 y muestra los numeros de a 1
+
+
+for c in "Juan Gabriel":
+    print(c)				-Recorre Las palasbra Juan Gabriel
+
+
+suma = 0
+for nota in notas:
+    suma = suma +nota
+print(suma/len(notas))			-Promedio de notas, recorre de a uno las notas y las almacena en suma y las va sumando
+
+
+
+primos = [2,3,5,7,11,13,17,19,23,29]
+for idx, p in enumerate(primos):
+    print(idx, p)			-idx recorre e identifica con in ID, mientras recorre el array con p
+
+
+for idx in range(len(primos)):
+    print(idx,primos[idx] )		-Para ver los index solamente (sacar primos [idx])
+
+
+
+def criba_eratostenes(n):
+    primos=[]
+    no_primos=[]
+    
+    for i in range(2, n + 1):
+        if i not in no_primos:
+            primos.append(i)
+            
+            for j in range(i * i, n+1, i):
+                no_primos.append(j)
+    return primos
+
+criba_eratostenes(120)
+len(criba_eratostenes(120))
+
+
+######################################################################################
+WHILE										 #####
+######################################################################################
+
+count = 0
+while count < 10:
+    print(count)
+    count+=1				-Repite hasta que la funcion es falsa
+
+
+######################################################################################
+Tupla										 #####
+######################################################################################
+
+No puede modificarse
+
+l3 = list(p3)				-Pasa p3 a list
+
+p5=tuple(L5)				-Pasa L5 a tupla y la guarda en p5
+
+"Hola que tal estas".split(" ") 	-Armar una lista separada por espacio
+
+
+numeros = input("escribe numeros separados por comas")
+numerosL = numeros.split(",")
+print(numerosL)
+numerosT = tuple(numerosL)
+print(numerosT)				-Pasa lista a Tupla
+
+
+######################################################################################
+Diccionario/Array								 #####
+######################################################################################
+
+
+nombre= input("Ingrese su nombre: ")
+print("Hola %s"%nombre)  		-%s se reemplaza por %nombre que ingresas
+
+#$s					-es para string
+#$d					-es para entero
+#$f					-es para numero flotante (con coma)
+##%.2f					-Indica cuantos numeros despeues de la coma
+
+
+
+
+edad = {
+        "Facundo":30,
+        "Maria":20,
+        "Ricardo":53,
+        "Antonio":45
+} 					-Ejemplo de diccionario
+
+
+#edad[Ricardo]				-Consulta el diccionario (devuelve 53)
+#"Pepe" in edad				-Consulta para ver si existe o no en el diccionario
+#edad.keys() 				-Devulve todas las claves
+#edad.values() 				-Muestra los valores del diccionario
+#len(edad)				-Longitud del diccionario
+#del edad["Antonio"] -			-del borra los datos de Antonio del diccionario
+
+
+######################################################################################
+IF										 #####
+######################################################################################
+
+x = int(input("Ingrese un numero: "))
+if x < 5:
+        print("Has escrito un numero menor a 5")
+elif x < 10:
+        print("Has escrito un numero entre 10 y 5")
+else:
+        print("El numero es mayor o igual a 10")
+
+
+
+x = int(input("Escribe un numero: "))
+if x>0 and x<10:
+    print("Has escrito un numero entre 0 y 10")
+
+
+
+x = int(input("Escribe un numero: "))
+if x<0 or x>10:
+    print("Tu numero no esta en el intervalo de 0 a 10")

@@ -1,0 +1,7 @@
+source_python("suma.py")		-usa el archivo suma.py que esta en la misma carpeta
+
+np<- import("numpy", convert = FALSE)   -Importar libreria numpy de python
+##x<-np$array(c(1:4))
+##sum<- x$cumsum()
+
+

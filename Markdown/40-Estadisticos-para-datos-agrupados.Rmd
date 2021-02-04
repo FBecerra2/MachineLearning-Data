@@ -1,0 +1,55 @@
+---
+title: "Estadisticos para datos agrupados"
+author: "Facundo"
+date: "12/8/2020"
+output: html_document
+---
+Estadisticos para datos agrupados (Cuando ya vienen los datos agrupados para sacar el total)
+
+Cambian las siguiente formulas
+-----------------------------------
+Media
+Varianza
+Varianza muestral
+Desciacion tipica
+Desviacion tipica muestral
+
+La moda cambia por el intervalo muestral(es la clase con mayor frecuencia , absoluta o relativa)
+
+mediana cambia por intervalo critico para la mediana
+(es el primer intervalo donde la frecuencia relativa acumulada sea mayor o igualque 0.5)
+
+limite inferior + la amplitud * n/2 - numero anterior frecuencia acumulada/frecuencia acumulada
+
+Aproximacion de quantiles
+-----------------------------------
+
+Calcular Estadisticos de datos Agrupados
+
+
+```{r}
+cw1
+```
+
+```{r}
+TOT = tabla$Fr.cum.abs[ultima posicion]
+
+anchura.media = round(sum(tabla$Fr.abs*tabla$mc)/TOT,3) #Media mc = Marca de clase
+
+anchura.var = round(sum(tabla$Fr.abs*tabla$mc^2)/TOT-anchura.media^2,3) #Varianza
+```
+
+
+```{r}
+anchura.dt = round(sqrt(anchura.var)) #desviacion tipica
+
+I.modal = tabla$intervals[which(tabla$Fr.abs == max(tabla$Fr.abs))] #Intervalo Modal
+
+I.critic = tabla$intervals[wich(tabla$Fr.cum.rel >= 5)]
+I.critic[1] #Acceso al primero Intervalo critico
+```
+Formula de mediana agrupada y quantiles video 139
+crear script funciones par todo
+
+
+

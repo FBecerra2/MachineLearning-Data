@@ -1,0 +1,99 @@
+---
+title: "Distribucion-Hipergeometrica"
+author: "Facundo"
+date: "23/8/2020"
+output: html_document
+---
+
+Extraer a la vez (o una detras de otra sin retornarlos) de una bolsa Objeto N o Objeto M.
+
+Problema de combinatoria Basico.
+
+## Distribucion-Hipergeometrica
+
+
+dhyper(x,m,n,k)
+phyper(q,m,n,k)
+qhyper(p,m,n,k)
+rhyper(nn,m,n,k)
+
+M = el numero de objetos del primer tipo
+N = el numero de objetos del segundo tipo
+k= Numero de extracciones realizas
+
+Supongamso que tenemos 20 animales, de los cuales tenemos 7 perros. Queremos medir la probabilidad de encontrar un numero determinado de perrros si elegimos $x=12$ animales al azar.
+
+```{r}
+library(Rlab)
+M=7
+N=13
+k=12
+
+dhyper(x=0:12, m=M,n=N,k=k)
+phyper(q=0:12, m=M,n=N,k=k)
+qhyper(p=0.5, m=M,n=N,k=k)
+rhyper(nn=1000,m=M,n=N,k=k)->data
+hist(data,breaks = 8)
+```
+
+
+## Distribucion de Poisson
+Frecuandia por unidad de medida, cuantas personas entran a una tienda en una hora
+
+
+
+
+## Distribucion Binomial Negativa
+repetir bernoulli asta obtener N numero de Exitos
+
+## distribucion Uniforme
+Usamos el paquete stats.
+
+dunif(x,min,max)
+punif(q,min,max)
+qunif(p,min,max)
+runif(n,min,max)
+
+donde min y max son los extremos de los intervalos de la distribucion uniforme.
+
+
+Supongasmosa que $x\sim U([0,1])$ entonces estudiar sus parametros
+```{r}
+
+a = 0
+b = 1
+x = seq(-0.1,1.1,0.1)
+plot(dunif(x,min = a,max = b))
+plot(punif(x,a,b), type = "l")
+qunif(0.5,a,b)
+qunif(0.25,a,b)
+runif(10000000,a,b)->data
+hist(data)
+```
+
+## Distribucion Exponencial
+
+El tiempo que falta para que ocurra algo, Tiempo en que pase un colectivo
+
+paquete stats
+dexp(x,rate)
+pexp(q,rate)
+qexp(p,rate)
+rexp(n,rate)
+
+date = lambda que es el tiempo entre dos sucesos coonsecutivos
+
+
+
+## Distribucion normal
+
+dnorm(x,mean,sd)
+pnorm(q,mean,sd)
+qnorm(p,mean,sd)
+rnorm(n,mean,sd)
+
+mean es la media y sd la desviacion estandar de la normal
+```{r}
+
+```
+

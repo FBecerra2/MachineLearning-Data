@@ -1,0 +1,117 @@
+################################################################################################
+TABLA DE CONTINGENCIA								################
+################################################################################################
+
+x = sample(1:5, size = 12, replace = TRUE)
+#1:5				-Crea un vector de 1 a 5
+#size=12			-Tamaño del vector
+#replace			-Reposicion Saco un numero de 1 a 5 y lo dejo , asi 12 veces
+
+
+
+################################################################################################
+FRECUENCIA RELATIVA								################
+################################################################################################
+prop.table(table(x))				     -FRECUENCIA RELATIVA es igual a table(x)/lenght(x)
+prop.table(FactorA, FactorB) 			     -Frecuencias relativas Global
+prop.table(FactorA, FactorB, margin = 1) 	     -Frecuencia relativa Global por FactorA
+prop.table(FactorA, FactorB, margin = 2) 	     -Frecuencia relativa Global por FactorB
+prop.table(table(FactorA,FactorB,FactorC), margin = c(1,3)) -Freuencia relativa Global de FactorA y FactorC
+(frecuencia absoluta+frecuencia absoluta anterior / el total) -Frecuencia Relativa Acumulada
+
+################################################################################################
+FRECUENCIA ABSOLUTA								################
+################################################################################################
+tt<- table(FactorA, FactorB)			     -Frecuencia absoluta
+
+
+################################################################################################
+FRECUENCIA ACUMULADA								################
+################################################################################################
+Ejemplo de Vector Frecuencia Acumulada
+DatFrame = ordered(c("S","A","N","Ex","S","S","Ex","Ex","N","A","A","A","A","N","S"), levels = c("S","A","N","Ex"))
+
+FrecuenciaAcumulada = table(DataFrame)			      -Da la frecuencia Absoluta
+cumsum(FrecuenciaAcumulada)				      -Frecuencia Absoluta Acumulada
+(frecuencia absoluta+frecuencia absoluta anterior / el total) -Frecuencia relativa acumulada
+cumsum(prop.table(FrecuenciaAbsoluta)) 				      -Frecuencia Relativa Acumuladas
+
+
+apply(tabla,margin= 1-2, FUN=cumsumm)
+###margin =1 Frecuencia acumula por filas
+###marfin = 2 Frecuencia acumulada por columnas
+
+
+################################################################################################
+FRECUENCIA ORDINAL								################
+################################################################################################
+intervalos=cut(crabs$width, breaks = c(21,25,29,33,Inf),right = FALSE,labels = c("21-25","25-29","29-33","33-...")) # cambia de Numericas a Ordinales
+
+crabs$width.rank = ordered(intervalos)
+str(crabs)
+
+
+################################################################################################
+MODA										################
+################################################################################################
+
+names(which(table(x)==max(table(x))))		     -Con esto se puede sacar la MODA
+
+moda<- function(d){
+  names(which(table(d)==max(table(d))))
+}
+m_t=moda(datos)					     -Moda en Funcion
+
+################################################################################################
+Datos Multidimencionales							################
+################################################################################################
+Ejemplo con 3 Dimensiones
+ans = sample(c("Si","No"), size =100, replace = TRUE)
+sex = sample(c("H","M"), size =100, replace = TRUE)
+place = sample(c("San Francisco","Barcelona","Valencia","Cobija","Asturias"), size =100, replace = TRUE)
+table(sex,ans,place)
+ftable(sex,ans,place)
+ftable(sex,ans,place, col.vars = c("sex","ans"))
+
+################################################################################################
+Filtrar tablas									################
+################################################################################################
+table(sex,ans,place)["M","Si","San Francisco"]
+table(sex,ans,place)[,"Si","Valencia"]
+
+
+
+library(kableExtra)
+kable(HairEyeColor)				Muestra en forma de lista tipo excel
+
+apply(be, MARGIN = 2,FUN=table) #tabla de frecuencias absolutas para cada uno de los factores
+apply(be, MARGIN = 2,FUN=table)$sexo
+
+aperm(HairEyeColor, perm = c("Sex","Hair","Eye")) # cambia la forma de mostrar los datos 
+```
+
+
+names(which(table(x)==1)) 			     -Que numero se repite 1 sola vez en table(x)
+
+
+datos = factor(c("H","M","M","M","H","H","M","M"))   -Creamos un factor
+table(datos)					     -Muesta los datos por grupo, EJ: H 3 , M 5
+table(datos)["M"]				     -Muestra los datos que correcponde a M, Ej: M 5
+sum(table(datos))				     -Suma el vector
+length(datos)					     -Mide el largo del vector
+
+
+
+# Paquete `gmodels`
+CrossTable(sex, ans, prop.chisq = FALSE)
+
+
+
+# Sumas por filas y columnas
+
+colSums(ColA, ColB)				-Suma las columnas A y B
+rowSums(FilaA, FilaB)				-Suma Fila A y Fila B
+colSums(prop.table(ColA, ColB))			-Suma las frecuencias relativas de la Columna A y B
+rowSums(prop.table(ColA, ColB))
+apply(FactorA, FactorB, FUN = sum,MARGIN = 1) 	-Aplicado por fila la funcion SUM
+apply(FactorA, FactorB, FUN = sqrt,MARGIN = c(1,2)) -Aplicado por elemento la funcion sqrt

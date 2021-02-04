@@ -1,0 +1,28 @@
+---
+title: "Variables Aleatorias y funciones de distribucion"
+author: "Facundo"
+date: "18/8/2020"
+output: html_document
+---
+
+(PROBABILIDAD ea omega el espacio muestral de un experimento aleatorio. Suponiendo que omega es finito, una probabilidad sobre omega es una aplicacion)
+
+
+Variable aleatoria: Una variable aleatoria(v.a)sobre omega es una aplicacion, que asigna a cada suceso elmental un numero real.
+
+Puede entenderse como una descripcion numerica de los resultados de un experimento aleatorio.
+
+DOMINIO DE UNA VARIABLE ALEATORIA: Es el conjunto de los valores que puede tomar.
+
+Una variable aleatorio puede definir sucesos, de los cuales queremos conocer la PROBABILIDAD.
+
+
+Funcion de Distribucion de la v.a X 
+
+F(x) = p(X<=x)
+
+
+Cuantil de Orden p de una v.a X .
+Es el xp E R mas pequeño tall que f(xp)>=p
+
+notese que la mediana es el cuantil de orden 0.5

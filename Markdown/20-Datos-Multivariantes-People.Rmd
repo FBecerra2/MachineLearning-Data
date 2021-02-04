@@ -1,0 +1,32 @@
+---
+title: "Multivariante-people"
+author: "Facundo"
+date: "21/7/2020"
+output: html_document
+---
+# Ejemplo de color de ojos y de pelo
+```{r}
+HairEyeColor #Tabla de frecuencia
+
+sum(HairEyeColor) -> total
+```
+El total de individuos de la tabla de datos es : `r total`.
+
+```{r}
+prop.table(HairEyeColor, margin = 3)
+prop.table(HairEyeColor, margin = c(1,2))
+```
+```{r}
+aperm(HairEyeColor, perm = c("Sex","Hair","Eye")) # cambia la forma de mostrar los datos 
+```
+```{r}
+library(kableExtra)
+kable(HairEyeColor)
+```
+```{r}
+library(xtable)#para tablas de 2 dimensiones
+```
+
+
+
+

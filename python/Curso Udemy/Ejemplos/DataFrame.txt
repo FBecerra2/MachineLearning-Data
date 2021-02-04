@@ -1,0 +1,100 @@
+######################################################################################
+DataFrame									 #####
+######################################################################################
+import pandas as pd
+import numpy as np
+
+######################################################################################
+Cargar DataFrame								 #####
+######################################################################################
+
+df=pd.read_csv("dataframe/bodyfat.txt")			-Cargar DataFrame localmente
+df2 = pd.read_csv("http://winterolym.com/medals.csv") 	-Cargar dataframe or URL
+#delimiter=","						-Separa por , o lo que designes
+#decimal="."						-Elije punto para separar los decimales
+#encoding="utf-8"					-Elige el tipo de encoding
+
+df.mean()						-Media de cada columna del DataFrame
+df.head(8) 						-Mostrar las primeras 8 lineas del DF
+df.loc[[1]] 						-Accede a a fila con idetificador 1
+df.iloc[[0]]						-Accede al indice location empieza en posicion 0
+df[12:20] 						-Muestra el rango de esas filas
+df[10:95:5] 						-Muestra el rando de 10 a 95 de 5 en 5
+df.COLUMNA 						-Mustra la columna
+df.COLUMNA.mean() 					-Entrega la media de la columna
+df.COLUMNA.median()					-Entrega la mediana de la columna
+df.COLUMNA.describe()  					-Detalles de la columna
+df.describe().transpose()   				-Detalles del data frame con ejes invertidos
+df.shape 						-Muestra numeros de filas y columnas
+
+
+######################################################################################
+Crear DataFrame									 #####
+######################################################################################
+
+df = pd.DataFrame({
+    'A': np.random.rand(10),
+    'B': np.random.rand(10),
+    'C': np.random.rand(10)
+})							-Crear DataFrame
+
+
+
+
+df2 = pd.DataFrame({
+    'key' : ['A','B','C','A','B','C'],
+    'values': range(6)
+},
+columns=['key','values']
+)							-Crea DataFrame y nombra las columnas
+
+
+
+df = pd.DataFrame({
+    'key' : ['A','B','C','A','B','C'],
+    'values1': range(6),
+    'values2': np.random.randint(0,100,6)
+})							-np.random.randint(0,100,6) de 0 a 100 elige solo 6 numeros
+							-range(6) Coloca el rango de 0 a 5 en la columna
+
+
+
+MATRIZ.groupby('key') 					-Agrupo la columna
+MATRIZ.groupby('key').mean()				-Media por columnas
+
+MATRIZ.groupby('key').aggregate(['min', np.median, np.mean,max])  -Agrega a las columnas 
+								
+
+
+######################################################################################
+Filter										 #####
+######################################################################################
+
+df.groupby('key').std() 				-Desviacion standard
+
+######################################################################################
+Apply										 #####
+######################################################################################
+
+def norm_by_col2(x):
+    x['values1'] /= x['values2'].sum()
+    return x
+
+df.groupby('key').apply(norm_by_col2)
+
+
+
+df2=df.set_index('key')
+mapping = {
+    'A':'vowel',
+    'B':'consonant',
+    'C':'consonant'
+} 							-Cambia los grupos a los nuevos nombres
+
+
+df2.groupby(str.lower).mean() 				-Pasa el nombre de las claves a minisculas
+df2.groupby([str.lower, mapping]).mean()
+
+
+
+

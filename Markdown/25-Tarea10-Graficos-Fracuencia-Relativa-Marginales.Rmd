@@ -1,0 +1,59 @@
+---
+title: "Tarea 10"
+author: "Facundo"
+date: "22/7/2020"
+output: html_document
+---
+
+```{r}
+library(MASS) #1
+str(birthwt)
+head(birthwt)
+help(birthwt)
+```
+## Frecuencia relativa marginal de Raza madre y peso
+```{r}
+round(prop.table(table(birthwt[c(1,4)])),3) #2
+```
+```{r}
+bebes <- round(prop.table(table(birthwt[c(1,4)])),3)
+plot(bebes, main="Bebes y mamas", ylab = "Raza", xlab = "Peso bebe") #3
+```
+
+```{r}
+barplot(t(bebes), beside = TRUE,names=c("mayor 2.5kg","menor 2.5kg"),legend.text = c("White","Black","Other"),col = c("white","black","orange"),ylim =c(0,0.5),ylab = "Race")#4
+```
+
+## 5 Se puede obserbar que la raza blanca predomina en los bebes mayores a 2.5kg y mantiene un porcentaje medio en los bebes de menos de 2,5kg.
+
+##La raza negra es la que menor porcentaje tiene de bebes mayores a 2,5kg y tambien menores a 2,5kg.
+
+## Las demas razas tienen un porcentaje medio de bebes de mas de 2,5 kg, y predominan con los bebes de menos de 2,5kg.
+
+
+# 6
+```{r}
+smoke<-round(prop.table(table(birthwt[c(1,5)])),3) #smoke
+ht<-round(prop.table(table(birthwt[c(1,7)])),3) #Hipert
+```
+
+```{r}
+plot(smoke, main="Madre fumadora", ylab = "Fuma", xlab = "Peso bebe") #3
+plot(ht, main="Madre Hipertensa", ylab = "HT", xlab = "Peso bebe") #3
+```
+
+```{r}
+barplot(smoke, beside = TRUE,names=c("Mayor 2.5kg","Menor 2.5kg"),legend.text = c("No-Smoke","Smoke"),col = c("white","black"),ylim =c(0,0.5),ylab = "Race")
+barplot(ht, beside = TRUE,names=c("Mayor 2.5kg","Menor 2.5kg"),legend.text = c("No-Ht","Ht"),col = c("white","black"),ylim =c(0,0.7),ylab = "Race")
+```
+
+```{r}
+bebe= MASS::birthwt
+bebe2 = table(bebe$smoke,bebe$race,bebe$low)## Frecuencia marginal de tres ternas.
+
+round(prop.table(bebe2, margin = 1)*100,2)
+```
+```{r}
+plot(round(prop.table(table(bebe$smoke,bebe$race,bebe$low))*100,3),main="Ejercicio 8")
+```
+

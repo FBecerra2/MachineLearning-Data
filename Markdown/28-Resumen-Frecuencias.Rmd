@@ -1,0 +1,53 @@
+---
+title: "EJEMPLO MATEMATICO"
+author: "Facundo"
+date: "28/7/2020"
+output: html_document
+---
+
+Frecuencia Absoluta: Es el numero de elementos que son iguales
+
+Frecuencia Relativa = Frecuencia Absoluta/numero total de elementos
+
+Frecuencia Absoluta Acumulada=Suma Frecuencia absoluta <= X 
+
+Frecuancia Relativa Acumulada=Frecuencia Absoluta Acumulada/ numero total de elementos.
+
+
+#Tirar Dados
+```{r}
+set.seed(162017) #Crear una semilla fija los datos de abajo
+
+dados = sample(1:6,25,replace=TRUE)
+dados
+set.seed(NULL)
+```
+
+```{r}
+table(dados) #Frecuencia absoluta
+```
+```{r}
+round(prop.table(table(dados)),2) # Frecuencia Relativa
+```
+```{r}
+cumsum(table(dados)) #Frecuencias Absolutas Acumuladas
+```
+```{r}
+round(cumsum(prop.table(table(dados))),2) # Frecuencia Relativa Acumulada
+```
+
+
+```{r}
+dados.df = data.frame(Puntuacion= 1:6,
+                      Fr.abs=as.vector(table(dados)),
+                      Fr.rel=as.vector(round(prop.table(table(dados)),2)),
+                      Fr.acu=as.vector(cumsum(table(dados))),
+                      Fr.racu=as.vector(round(cumsum(prop.table(table(dados))),2)))
+
+
+dados.df                   
+```
+
+
+
+

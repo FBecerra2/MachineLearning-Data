@@ -1,0 +1,41 @@
+---
+title: "histograma de frecuencias relativas"
+author: "Facundo"
+date: "14/8/2020"
+output: html_document
+---
+La densidad de una variable es una curva cuya area  comprendida entre el eje de las abcisas y la propia curva sobre un intervalo igual a la fraccion de individuos de la poblacion que caen dentro de ese intervalo.
+
+
+La densidad mas famosa es: la CAMPANA DE GAUSS
+
+```{r}
+histRel = function(x,L){
+  h = hist(x,breaks = L,right = FALSE, plot = FALSE)
+  t = round(1.1*max(max(density(x)[[2]]),h$density),2)
+  plot(h,freq=FALSE, col="lightgray",
+       main="Histograma de frec. relativas y curva de densidad estimada",
+       xaxt="n",ylim=c(0,t), xlab="Intervalos", ylab="Densidades")
+  axis(1, at = L)
+  text(h$mids, h$density/2,labels = round(h$counts/length(x),2),col = "blue")
+  lines(density(x),col="purple", lwd=2) #pinta la curva
+  
+  
+}
+```
+
+```{r}
+histRelCum = function(x,L){
+  h = hist(x,breaks = L,right = FALSE, plot = FALSE)
+  h$density= cumsum(h$counts)/length(x)
+  plot(h,freq=FALSE,
+       main="Histograma de frec. relativas acumuladany curva de distribucion estimada",
+       xaxt="n",col="lightgray", xlab="Intervalos",ylab="Frec. relativas acumuladas")
+  axis(1, at = L)
+  text(h$mids, h$density/2,labels = round(h$density,2),col = "blue")
+  dens.x = density(x)
+  dens.x$y= cumsum(dens.x$y)*(dens.x$x[2]-dens.x$x[1])
+  lines(dens.x,col="purple", lwd=2) #pinta la curva
+}
+```
+

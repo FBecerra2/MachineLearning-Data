@@ -1,0 +1,44 @@
+Contruir el Modelo
+
+Exaustivo All-In-Casos a Usar
+1-Conocimiento a priori (Saber porque se usan todos los datos)
+2-Necesidad (te lo pide el jefe)
+3-Preparacion previa para la eliminacion hacia atras
+
+
+Eliminacion Hacia Atras
+
+1-Seleccionar el nivel de significacion para permanecer en el modelo
+2-Se calcula el modelo con todas las posibles vvariables predictoras
+3-Considera la variable predictora con el p-valor mas grande. Si P>0,5 (0,05 es SL Signifique Level),
+entonces vamos al PASO 4 sino vamos al FINAL
+4-Se elimina la variable predictora
+5-Ajustar el modelo sin dicha variable (volver a paso 3 hasta que P-valor<0,05)
+
+
+Seleccion hacia adelante
+
+1- Elegir un nivel de significacion para entrar en el modelo (p.e. SL = 0.05)
+2- Ajustamos todos los modelos de regresion lineal simple y~x Elegimos el que tiene menor
+p-valor.
+3-Conservaremos esta variable y ajustamos todos los posibles modelos con una variable extra añadida
+a alas que ya tenga el modelo hasta el momento.
+4-Consideramos la variable predictora con el menor p.valor. Si P<SL, vamos al PASO 3, sino FIN.
+Cuando la variable predictora se a mayor a SL , tomamos hasta la variable anterior. Para que sea
+menor a SL.
+
+
+Eliminacion Bidireccional (Uno de los mejores modelos)
+1-Seleccionar un nivel de significacion [ara entrar y salir del modelo
+p.e:SLENTER=0.05,SLSTAY=0.05
+2-Llevar a cabo el siguiente paso de seleccion hacia adelante (Con las nuevas variables con: P<SLENTER para entrar)
+3-Llevar a cabo TODOS los pasos de la Eliminacion hacia atras (Las variables antiguas deben tener P<Stay para quedarse)
+4-No hay nuevas variables para entrar ni antiguas para salir(FIN)
+
+
+Comparacion de scores - Todos los modelos posibles (no es el mejor enfoque) 
+
+1-Seleccionar un criterio de condad de ajuste (criterio de akaike)
+2-Contruir todos los modelos posibles de regresion 2n-1 conbinaiconales en total.
+3-Seleccionamos el modelo con el mejor criterio elegido.
+FIN

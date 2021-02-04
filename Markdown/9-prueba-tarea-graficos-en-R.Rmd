@@ -1,0 +1,69 @@
+---
+title: "Tarea-6"
+author: "Facundo"
+date: "17/6/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+$$y=x^2-3x+30$$
+```{r}
+f=function(x){(x^2)-3*x+30}
+curve(f,c(-15:15),main="Parábola",xlab=expression(x),ylab = expression(x^2-3*x+30),xlim=c(-30,30))
+```
+
+
+```{r}
+I=(-15:15)
+f=function(x){(x^2)-3*x+30}
+plot(f(I), xlim=c(-30,30),main="Parábola",xlab=expression(x),ylab = expression(x^2-3*x+30))
+curve(f,c(-15:15),main="Parábola",xlab=expression(x),ylab = expression(x^2-3*x+30),xlim=c(-30,30),add=TRUE)
+
+```
+
+
+$5\cdot2^x$
+```{r}
+f = function(x){5*2^x}
+curve(f,c(-10,25),xlim = c(-15,30),log = "y", ylab =expression(5.2^x))
+```
+
+```{r}
+y1 = function(x){3*x}
+y2 = function(x){-3*x}
+curve(y1,-10,20,main="2 rectas",sub="Dos Rectas con pendiente opuesto",col="blue")
+curve(y2,-10,20,col="green",add=TRUE)
+#legend("topleft",legend=c(expression(3*x),expression(-3*x)),lwd=2, col=c("blue","green"))
+legend("topleft", 13,10,legend=c("3x", "-3x"), lty = 1, lwd = 2, col=c("blue","green"))
+```
+
+```{r}
+y1 = function(x){3*x}
+y2 = function(x){-3*x}
+curve(y1,-10,20,main="2 rectas",sub="Dos Rectas con pendiente opuesto",col="blue")
+curve(y2,-10,20,col="green",add=TRUE)
+#legend("topleft",legend=c(expression(3*x),expression(-3*x)),lwd=2, col=c("blue","green"))
+legend("topleft", 13,10,legend=c("3x", "-3x"), lty = 1, lwd = 2, col=c("blue","green"))
+abline(h=0,col="red",lwd=5)
+
+```
+
+```{r}
+f=function(x){(x^2)-3*x+30}
+curve(f,c(-15:15),main="Parábola",xlab=expression(x),ylab = expression(x^2-3*x+30),xlim=c(-10,30),ylim=c(-5,300))
+
+y=function(c){2*c+7}
+curve(y,col="blue", add=TRUE, lwd=2)
+```
+
+
+
+
+
+
+data()
+
+
+

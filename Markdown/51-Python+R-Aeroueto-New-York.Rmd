@@ -1,0 +1,76 @@
+---
+title: "Pokemon"
+author: "Facundo"
+date: "24/8/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+use_python("C:/Python/python.exe")
+
+```
+
+## Pokemon (python a R)
+
+```{python}
+import pandas as pd
+
+pokemon = pd.read_csv("./data/Pokemon.csv")
+print(pokemon.head())
+print(pokemon.shape)
+pokemon = pokemon[pokemon["Generation"]==1]
+pokemon = pokemon[["Type 1","Type 2","Speed"]]
+pokemon = pokemon.dropna() #Limpieza de Registros NA
+print(pokemon.shape)
+```
+
+### Transmision de los datos de python a R
+```{r, fig.width=7, fig.height=4}
+
+hist(py$pokemon[,"Speed"],breaks = 10, main="Velocidad de los pokemon")
+
+```
+
+## Pokemon ( de R a Python)
+
+```{r}
+pokemon2<- read.csv("data/Pokemon.csv", header = TRUE)
+head(pokemon2)
+library(tidyverse)
+pokemon2 <- pokemon2 %>%
+  filter(Generation == 1) %>%
+  select(Type.1,Type.2,Speed) %>%
+  na.omit()
+  summary(pokemon2)
+```
+
+## Aeropuertos de NYC
+
+```{r}
+data <- nycflights13::flights
+head(data)
+nrow(data)
+summary(data)
+
+```
+```{python}
+pydata = r.data
+pydata = pydata[pydata["dest"]=="ORD"]
+pydata = pydata[['carrier','dep_delay','arr_delay','origin']]
+pydata = pydata[pydata['arr_delay']<6*60]
+pydata = pydata.dropna()
+print(pydata.head())
+print(pydata.shape)
+```
+
+```{r}
+
+summary(py$pydata)
+boxplot(arr_delay~origin,data = py$pydata,main="Retraso de los vuelos hacia Orlando desde NYC")
+```
+
+

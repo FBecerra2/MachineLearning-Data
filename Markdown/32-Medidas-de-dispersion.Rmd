@@ -1,0 +1,36 @@
+---
+title: "Calcular medidas de despersion"
+author: "Facundo"
+date: "1/8/2020"
+output: html_document
+---
+
+range(x) -Nivel min y max de una variable
+diff(rango(x))  -Diferencia entre el mas chico y el mas grande
+IQR(x,type=7) - Rango intercuartiles (hay muchos tipos cambiando el numero)
+
+var(x)    -Varianza muestral
+sd(x)     -Desviacion tipica muestral
+
+var(x)*(length(x)-1)/length(x)  -Varianza 
+sd(x)*sqrt((length(x)-1)/length(x))    -Desviacion tipica
+
+
+```{r}
+dados2=c(6,2,3,4,6,2,6,6,4,4,1,2,2,5,3)
+
+diff(range(dados2)) #Rango- diferencia entre el mas grande y el mas chico
+
+IQR(dados2) #Rango intercuartilico, entre el primer cuartir y el tercer cuartil hay 3,5 puntos de diferencia
+
+var(dados2) #Varianza muestral
+
+sd(dados2) # Desviacion tipixa muestral
+
+n=length(dados2)
+var(dados2)*(n-1)/n #  VARIANZA
+
+
+sd(dados2)*sqrt((n-1)/n) # Desviacion tipica
+```
+

@@ -1,0 +1,57 @@
+---
+title: "Medias"
+author: "Facundo"
+date: "30/7/2020"
+output: html_document
+---
+
+```{r}
+x=c(32,45,67,43,28,17,48,95)
+
+n = length(x)
+x
+```
+Calcular las medias del ector `r x` que esta formado por `r n` observaciones.
+
+## Media aritmetica
+
+$$\bar{x}=\frac{1}{n}\sum_{i=1}^n x_1$$
+```{r}
+#Dos formas de usar la media aritmetica
+mean(x)
+sum(x)/n
+```
+
+## Media aritmetica ponderada
+
+$$\bar{x}_w = \frac{\sum_{i=1}^n w_i\cdot x_i}{\sum_{i=1}^n w_1}$$
+
+```{r}
+w =c(1,2,2,3,3,2,2,1)
+sum(w*x)/sum(w)
+```
+
+## Media Geometrica (Cuando el conjunto de numeros quedan en forma de producto)
+
+$$\bar{x}_G= \left(\prod_{i^1}^n x_1\right)^{1/n}$$
+
+```{r}
+prod(x)^(1/n)
+
+prod(x^(1/n))
+```
+
+## Media Armonica
+
+$$\bar{x}_A = \frac{n}{\sum_{i+1}^{n}\frac{1}{n_1}}$$
+
+```{r}
+n/sum(1/x)
+```
+
+## Minimo y Maximo del vector
+```{r}
+min(x)
+max(x)
+```
+

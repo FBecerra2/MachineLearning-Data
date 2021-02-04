@@ -1,0 +1,50 @@
+---
+title: "Distribucion de Bernoulli"
+author: "Facundo"
+date: "22/8/2020"
+output: html_document
+---
+
+Ejemplo de una moneda al Aire, tiene dos Valores Verdadero o Falso.
+
+Ej: Aprobar o Desaprobar un examen.
+
+Mide la probabilidad de exito o fracaso de una experiencia.
+
+Funciones en R depende del Paquete Rlab:
+
+dbern(x,prob) (densidad)
+pbern(q,prob) (distribucion)
+qbern(p,prob) (quantil)
+rbern(n,prob) (genera numeros aleatorios)
+
+donde prob es la probabilidad de exito
+
+## Funcion de densidad
+
+$$f(k) = p^k(1-p)^{1-p},\ k\in \{0,1\}$$
+
+Sea X una funcion de Bernoulli con parametro p=0,7
+Sea $X = Be(p=0,7)$, la distribuciuon que modela la probabilidad de tener una cara con una moneda trucada.
+
+```{r}
+#instalar Rlab
+library(Rlab)
+dbern(0, prob=0.7)
+dbern(1, prob=0.7)
+
+pbern(0, prob=0.7)
+pbern(1, prob=0.7)
+
+qbern(0.5,0.7)
+qbern(0.25,prob=0.7)
+
+rbern(100, prob=0.7) -> data
+hist(data)
+```
+
+
+
+
+
+

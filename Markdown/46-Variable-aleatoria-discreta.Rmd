@@ -1,0 +1,30 @@
+---
+title: "Variable aleatoria discreta"
+author: "Facundo"
+date: "19/8/2020"
+output: html_document
+---
+
+Variable aleatoria discreta, una v.a X . Cuando es finito o numerable, cuantas caras salen , que numero del dado sale
+
+Funcion de densidad.
+
+Sacar la cara de un dado y ver la densidad 
+
+""Esperanza de una variable aleatoria discreta"", 
+La densidad de X, es la esperaza respecto de la densidad es la suma ponderada de los elementos, multiplicando cada elemento por su probabilidad
+
+en un dado 
+Numero de dado * probabilidad
+
+1*1/6
+2*1/6
+3*1/6, etc
+
+
+
+Varianza de una Variable aleatoria discreta
+
+la Varianza respecto de la densidad es el valor esperado de la diferencia al cuadrado de los valores de la variable aleatoria y su valor medio
+
+Desviacion tipica de una V.A discreta Estudiar

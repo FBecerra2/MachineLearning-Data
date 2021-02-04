@@ -1,0 +1,41 @@
+Tipos de Datos
+
+Datos de tipo atributo o Cualitativos:
+	Expresan cualidad del individuo, en R se guardan en vectores de palabras
+(Color de Ojos, Pais de procedencia,etc- No tiene logica aritmetica)
+
+	Variable cualitativa: lista de observacionesde un tipo de dato cualitativo sobre un 
+conjunto concreto de objetos.
+	Niveles: Diferentes valores que pueden tomar esos datos. Ej: M(Macho), H(Hembra).
+	
+-------------------------------------------------------------------------------------------------------------
+Datos cualitativas ordinales: 
+	Similar a los cualitativos pero se pueden ordenar,(Suspenso,aprobado,notable,sobresaliente)
+Estos datos los guardamos como lista de datos ordenados.
+Datos ordinales: escala likert, 
+se caracterizan por tner un orden natural que permite "acumular" observaciones.
+
+Datos cualitativas nominales: Son cualitativas pero no pueden ser sometias a un Orden.
+
+#############################################################################################################
+Datos Cuantitativos:
+	Se refieren a medidas , como la edad, longitudes, etc.
+Guardaremos las listas de datos en vectores numericos.
+
+
+
+-------------------------------------------------------------------------------------------------------------
+Estudio de Frecuencias
+
+Frecuencia Absoluta: Numero de veces que se repite la "X" en el total de datos
+
+Frecuencia Relativa: Frecuencia absoluta Dividido el total de datos
+Frecuencia relativa global: prop.table(table(sexo,respuestas)) Esto es la cantidad de Mujeres que dicen si
+ sobre la cantidad de mujeres
+Frecuencia Relativa marginal:La cantidad de mujeres que dicen que si sobre e total de las personas.
+prop.table(table(sexo,respuestas),margin=1) # define la proporcion de frecuencia por filas ,por Sexo
+prop.table(table(sexo,respuestas),margin=2) #define la proporcion de frecuencia por columna.
+
+Moda: Es el numero que mas se repite.(La frecuencia absoluta mas alta)
+
+Frecuencia Acumulada: Podemos contar cuantas veces hemos observado un dato menor o igual a este.

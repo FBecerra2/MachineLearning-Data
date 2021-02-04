@@ -1,0 +1,44 @@
+---
+title: "Tarea-Manejando-Data-Frame-con-R"
+author: "Facundo"
+date: "16/7/2020"
+output: html_document
+---
+
+```{r}
+df = read.csv("data/medals.csv",header = TRUE)
+head(df)
+str(df)
+#¿Cuantos deportistas aparecen en el data frame?
+nrow(df) #2311 deportistas
+#¿Cuantos han ganado medallas de oro, cuantos de plata y cuantos de bronce?
+nrow(df[df$Medal=="Gold",]) #Buscar medallas de ORO 774
+nrow(df[df$Medal=="Silver",]) #Buscar medallas de ORO 773
+nrow(df[df$Medal=="Bronze",]) #Buscar medallas de ORO 764
+#¿En cuantos lugares se han hecho olimpiadas de invierno?
+lug = factor(df$NOC)
+length(levels(lug)) #45 lugares
+#¿Cuantos hombres y cuantas mujeres hay?
+nrow(df[df$Event.gender=="M",]) #Male 1386
+nrow(df[df$Event.gender=="W",]) #Famale 802
+nrow(df[df$Event.gender=="X",]) #X 123
+
+#¿En qué año participaron más deportistas?
+library(tidyverse) #Para disponer de las funciones del paquete ne tu entorno de trabajo. 
+df %>% #Primero llamo a los datos. Uso el símbolo %>% para conectar las operaciones. 
+  group_by(Year)%>% #Luego indico que quiero un grupo por cada valor único en Estados, podría agupar por más variables si las tuviera/quisiera.
+  tally()  #tally cuenta cuantos elementos hay en cada grupo. 
+
+df%>%count(Year,sort = TRUE)
+```
+
+
+```{r}
+#¿En qué año participaron más deportistas?
+df = read.csv("data/medals.csv",header = TRUE)
+library(tidyverse)
+df%>%filter(Year>=1960 & Year <=1996, Medal == "Gold")%>%count(NOC,sort = TRUE)
+```
+
+
+

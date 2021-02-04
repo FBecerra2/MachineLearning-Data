@@ -1,0 +1,285 @@
+---
+title: "Graficos"
+author: "Curso Estadistica Descriptiva"
+date: "15/6/2020"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Graficos con la funcion `plot`
+
+<!---
+-plot(x,y) = para dibujar un grafico basico de los puntos siendo x,y vectores numericos
+
+ plot(x)= plot.(1:length(x),x)
+
+-plot(x,funcion): para dibujar  el grafico de la funcion
+--->
+
+```{r primet_plot, fig.cap="grafico basico explicando el uso del plot", fig.align='center', echo =FALSE}
+x = c(2,6,4,9,-1)
+
+y = c(1,8,4,-2,4)
+
+plot(x,y)
+```
+
+Si no incorporamos vector `y` , `R` nos va a tomar el parametro `x` como si fuese el vector de datos `y` : `plot(1:n, x)`
+
+```{r, echo=FALSE ,fig.align='center'}
+plot(2^(1:6))
+```
+
+Si queremos representar una funcion $f(x)$:
+```{r, echo=FALSE ,fig.align='center'}
+f <- function(x){sqrt(x)}
+plot(f)
+```
+
+
+<!-- Colores en plot
+
+log: para indicar que queremos el grafico en escala logaritmica.
+
+main("titulo"): para poner titulo al grafico.
+expression("Funcion"):para colocar una funcion en  vez del titulo.
+
+xlab("etiqueta"): poner etiqueta al eje X.
+ylab: poner etiqueta al eje y.
+
+pch=n : elegir los simbolos de los puntos. n=
+0,1,.....,25 el valor pordefecto es pch =1 (puntitos en el grafico)
+
+cex: tamaño de los simbolos de arriba pch.
+
+col="Color en ingles" : elige el color de los simbolos pch
+
+bg = "nombre color en ingles "color del centro del simbolo
+
+par(mfrow =c(1,2))= esto sirve apra hacer una fila y 2 columnas de graficos.
+-->
+
+
+
+# Escala logaritmica
+```{r, echo=FALSE ,fig.align='center'}
+par(mfrow =c(1,2))
+
+plot = plot(exp(1:20),xlab = "Indice", ylab = expression(e^{1:20}), main = "Escala lineal")
+
+plotLog = plot(exp(1:20),log = "y", xlab = "Indice", ylab = expression(e^{1:20}), main = "Escala Logaritmica en eje Y")
+```
+## Parametros
+
+```{r, echo=FALSE ,fig.align='center'}
+n = 1:20
+
+fib = (1/sqrt(5))*((1+sqrt(5))/2)^n - (1/sqrt(5))*((1-sqrt(5))/2)^n
+
+fib
+
+plot(fib, xlab = "n",ylab = expression(F[n]),
+main="Sucesion de fibonacci", pch=20)
+```
+
+<!--
+#Parametros de la funcion Plot
+
+type: elige el tipo de grafico que queremos:
+  
+  p: puntos
+  l: lineas rectas que unen puntos
+  b: lineas que unen puntos que no traspasan los puntos.
+  o: como el anterior pero en este caso si que traspasan los puntos.
+  h:Histogramas de lineas.
+  s:histogramas de escalones
+  n: para no fibujar los puntos.
+  
+  
+  
+lty: para especificar el tipod e linea
+ -"solid":1: linea continua
+ -"dashed":2: lineas discontinuas
+ -"dotted":3: linea de puntos
+ -"dotdashed":4: linea que alterna puntos y rayas
+ 
+lwd: especifica el grosor de las lineas
+xlim:modificar el rango del eje X
+ylim: modifica el rando del eje y
+xaxp: modificar posiciones de las marcas en el eje X
+yaxp: modificar posiciones de las marcas en el eje Y
+-->
+
+
+```{r}
+par(mfrow = c(3,2))
+x=c(50:59)
+y=c(2,9,25,3,100,77,62,54,19,40)
+plot(x,y, pch = 23, cex = 2, col= "blue",type = "p")
+plot(x,y, pch = 23, cex = 2, col= "blueviolet",type = "l")
+plot(x,y, pch = 23, cex = 2, col= "gold",type = "b")
+plot(x,y, pch = 23, cex = 2, col= "deeppink",type = "o")
+plot(x,y, pch = 23, cex = 2, col= "springgreen",type = "h")
+plot(x,y, pch = 23, cex = 2, col= "firebrick1",type = "s")
+
+par(mfrow = c(1,1))
+```
+
+```{r}
+x = (2*(1:20))
+y = (-1)^(1:20)*5*(1:20)
+plot(x,y, main="Ejemplo grafico", pch=8, cex =1, type ="b", lty = 4, lwd=4, xaxp = c(0,40,2),yaxp =c(-100,100,8))
+```
+
+```{r}
+plot(
+  n, 
+  fib, 
+  pch=21, 
+  col = "red", 
+  bg="yellow", 
+  cex = 1.2, 
+  type="o", 
+  lty = "dotted",
+  lwd=2, 
+  xlim=c(1,10), 
+  ylim= c(1,100), 
+  xaxp = c(1,10,3), 
+  yaxp=c(0,100,10))
+```
+<!--
+points(x,y): añade un punto de coordenadas(x,y) a un grafico ya existente
+
+abline: para añadir una recta a un grafico ya existente
+  abline(a,b): añade la recta y = bx+a
+  abline(v = x0): añade la recta vertical x =x0.v puede estar asignado a un vector.
+  abline(h = y0: añade la recta horizontal y =y0.h puede estar asignada a un vector)
+-->
+```{r}
+x = (2*(1:20))
+y = (-1)^(1:20)*5*(1:20)
+plot(x,y, 
+     main="Ejemplo grafico", 
+     pch=8, 
+     cex =1, 
+     type ="b", 
+     lty = 4, 
+     lwd=4, 
+     xaxp = c(0,40,2),
+     yaxp =c(-100,100,8))
+points(20,0, col="red",cex=4,pch=16)
+abline(h=0, lty=2,col="dodgerblue")
+```
+## Como añadir elementos a un grafico
+```{r}
+f<- function(x){
+  x^2 -2*x + sqrt(abs(x))
+}
+plot(f, xlim=c(-3,3))
+points(0,0, pch=19)
+points(-3:3,(-3:3)^2,col="blue")
+abline(2,3, lty="dashed", col="red")
+abline(v=2, lty="dotted", col="green")
+abline(h=5, lty="dotdash", col="gray")
+```
+
+```{r}
+f<- function(x){x^2}
+plot(f, xlim = c(-3,3),col ="red",lwd=2, ylab= expression(y^2),xlab="x")
+abline(h=0:9,v =-3:3,lty="dotted", col="grey")
+```
+
+```{r}
+plot(tan, xlim=c(-pi,pi), ylim=c(-5,5))
+abline(v= c(-pi/2,pi/2),col="red")
+```
+
+<!--
+text(x,y, labels = "....") añanaa en el punto de corrdenadas texto
+
+pos : permite indicar la posiciond el texto alrededor de las coordenadas(x,y). 
+Admite los siguientes valores:
+  1:abajo
+  2:izquierda
+  3:arriba
+  4:derecha
+  5: sin especificar, entrado al punto
+  
+Lineas o curvas
+-lines (x,y) añanade grafico existente una linea poligonal que une los puntos.
+-curve(x,y) permite añadir la grafica de una curva a un grafico existente.
+  -add=TRUE, sino la curva no se añade.
+-->
+```{r}
+plot(0,0)
+text(0,0, labels = "debajo",pos = 1)
+text(0,0, labels = "izquierda",pos = 2)
+text(0,0, labels = "arriba",pos = 3)
+text(0,0, labels = "derecha",pos = 4)
+
+```
+```{r}
+alumnos=c(1:10)
+notas=c (2,5,7,9,8,3,5,6,10,7)
+plot(alumnos,notas, main="Grafico con textos")
+text(alumnos,notas, labels = c("S","A","N","E","N","S","A","A","E","N"),
+  pos=c(rep(3,times=8),1,3))#repite la posicion 3 , 8 veces
+```
+
+
+
+```{r}
+f<- function(x){x^2}
+plot(f, xlim = c(-3,3),ylim=c(-10,10))
+points(-3:3, f(-3:3), pch=19)
+lines(-3:3, f(-3:3), lwd = 2,lty="dotted",col="red")
+curve(x^3,lty = "dashed",col="blue",add=TRUE)
+
+legend("bottomright",legend=c(expression(x^2),expression(x^3)),lwd=2, col=c("red","blue"),lty=c("dotted","dashed"))
+```
+# Leyendas de los Graficos
+
+<!--
+legend(posicion, legend="....")
+
+-"botttom"/"botttomright"/"botttomleft"
+-"top"/"topright"/"topleft"
+-"center"/"right"/left
+-->
+
+```{r}
+x = seq(0,2*pi,0.1)
+plot(x,sin(x),type="l",col="blue",lwd=3, xlab="",ylab="")
+lines(x,cos(x),col="green",lwd=3)
+lines(x,tan(x),col="purple",lwd=3)
+legend("bottomleft",col=c("blue","green","purple"), legend = c("Seno","Coseno","Tangente"),lwd=3,bty = "l")
+```
+
+# Segmentos, flechas, simbolos y poligonos.
+
+<!--
+segments: añade segmentos a un grafico existente
+arrows:añade flechas
+symbols:añade simbolos
+polygon:añande poligonos
+-->
+
+```{r}
+x = c(5*(1:10))
+plot(x,c(exp(-x)+(-1)^x*x/2*sin(x)^2),
+         xlab="", 
+         ylab="", 
+         main="Grafico con varios simbolos")
+
+segments(10,0,40,0, col ="red",lwd="4")
+arrows(10,0,40,-10, col ="blue",length = 0.5,angle=5,code=3)
+symbols(40,0,stars = cbind(1,.5,1,.5,1,.5,1,.5,1,.5), add=TRUE, lwd=3, inches=0.5)
+symbols(40,0,stars = cbind(1,.5,1,.5,1,.5,1,.5,1,.5), add=TRUE, lwd=3)
+polygon(c(20,30,40),c(10,-10,10), col ="gold",density =3, angle = 90,lty = 4,lwd=5)
+```
+

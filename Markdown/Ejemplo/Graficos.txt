@@ -1,0 +1,53 @@
+plot(x,y) 			 -Para dibujar un grafico basico de los puntos siendo x,y vectores numericos
+plot(x,funcion)			 -Para dibujar  el grafico de la funcion
+
+f <- function(x){sqrt(x)}
+plot(f)				 -Crear una funcion y graficarla
+barplot(table(x),horiz = TRUE)	 -Grafico de barras Horizontales
+#beside = TRUE			 -Pone una barrita al lado de la otra
+#names=c("Mayor 2.5kg","Menor 2.5kg") -Nombre abajo de las barras
+#col = c("white","black")	 -Agrega color a las baras por posicion
+
+pie(table(x))			 -Grafico de torta
+plot(table(Sexo,ans))		 -Grafico de Mosaico
+
+
+#log="y" 			 -Para indicar que queremos el eje y en escala logaritmica.
+#main="titulo"			 -Para poner titulo al grafico.
+#expression(Funcion-e^{1:20})	 -Para colocar una funcion en  vez del titulo.
+#xlab="Nombre de eje X" 	 -Poner etiqueta al eje X.
+#ylab="Nombre de eje Y" 	 -Poner etiqueta al eje y
+#pch=XX				 -Elegir un numero para cambiar los simbolos de la sinersecciones.
+#cex:XX 			 -Tamaño de los simbolos de arriba pch.
+#col="Color en ingles"		 -Elige el color de los simbolos pch
+#bg ="Color en ingles" 		 -Color del centro del simbolo
+
+#type				 -Elige el tipo de grafico que queremos:  
+##p				 -Puntos
+##l				 -Lineas rectas que unen puntos
+##b				 -Lineas que unen puntos que no traspasan los puntos.
+##o				 -Como el anterior pero en este caso si que traspasan los puntos.
+##h				 -Histogramas de lineas
+##s				 -Histogramas de escalones
+##n				 -Para no dibujar los puntos
+
+
+
+lty				 -Para especificar el tipo de linea
+#"solid":1			 -Linea continua
+#"dashed":2			 -Lineas discontinuas
+#"dotted":3			 -Linea de puntos
+#"dotdashed":4			 -Linea que alterna puntos y rayas
+ 
+lwd				 -Especifica el grosor de las lineas
+#xlim=c(1,10)			 -Modificar el rango del eje X
+#ylim=c(1,100) 			 -Modifica el rango del eje y
+#xaxp=c(1,10,3)			 -Modificar el rango del eje X de 1 a 10 de 3 en 3
+#yaxp=c(1,100,10)		 -Modifica el rango del eje Y de 1 a 100 de 10 en 10
+
+legend("bottomleft",col=c("blue","green","purple")     
+legend = c("Seno","Coseno","Tangente"),lwd=3,bty = "l")   -Agrega el cuadro de leyenda al histograma
+
+par(mfrow =c(1,2))		 -Esto sirve apra hacer una fila y 2 columnas de graficos.
+
+

@@ -1,0 +1,52 @@
+#============ Medidas de dispersion
+Evaluan que tan dispersos estan los datos. (Mas juntos o mas separados)
+
+#================== Rango o Recorrido
+
+Diferencia entre el maximo y el minimo de las observaciones
+
+
+
+#================== Rango Intercuartilico
+
+Diferencia entre el tercer y primer cuartil
+
+
+#================== Varianza
+
+Es la media aritmetica de las diferencias al cuadrado entre los datos X_i y la media aritmetica
+de las observaciones.
+
+#========Propiedades de la Varianza
+S^2 >= 0 . Esto se debe a que ,por definicion, es una suma de cuadrados de  numeros reales.
+
+La varianza es la media de los ciadrados de los datos menos el cuadrado de la media aritmetica de estos.
+
+#================== Varianza muestral
+
+Es la correccion de la varianza. 
+
+
+#================== Diferencia Varianza y Varianza muestral
+La diferencia entre ambas definiciones viene por la interrelacion entre la estadistica descriptiva y la inferencial
+Es normal medir como varian los datos cuantitativos mediante su varianza definida como la media aritmetica de las 
+distancias el cuadrado de los daros a su valor medio. 
+Por otro lado, el conjunto de nuestras observaciones, por normal, sera una muestra de una poblacion mucho mayor y nos
+interesara estimar entre otras muchas cosas de su varibilidad.
+
+La varianza de una muestra suele dar valores mas pequeños a que la varianza de la poblacion,mientras que la varianza muestral
+tiende a dar valores alrededor de la varianza de la poblacion.
+
+La varianza es el total de la muestra de la poblacion y la varianza muestral es una muestra de esa poblacion.
+
+Si la muestra es grande el porcentaje es aproximadamente ell mismo que la de la varianza.
+
+Si la muestra es pequeña, Aproxima mejor la varianza mejor la varianza que la Varianza real.
+
+#================== Desvacion Tipica
+
+Es la Raiz Cuadrada positiva de la varianza. S = sqrt(S^2)
+
+#================== Desviacion Tipica muestral
+
+La raiz cuadrada positiva de la varianza muestral

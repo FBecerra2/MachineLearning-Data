@@ -1,0 +1,38 @@
+---
+title: "Binomio de Newton"
+author: "prueba2"
+date: "23/5/2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Producto Notable
+
+la formla del producto notable es la siguiente:
+
+$$(a+b)^2 = a^2+2ab+b^2$$
+
+# Funcion con R
+
+```{r}
+binomioNewton2 = function(a,b){
+  a^2+2*a*b+b^2
+}
+binomioNewton2(1,2)
+binomioNewton2(2,1)
+```
+
+# Binomio de Newton
+$$(a+b)^n = \sum_{k=0}^n {n\choose k}\cdot b^k$$
+
+```{r}
+binomioNewton = function(a,b,n){
+  cumsum(choose(n,(0:n))*a^{n-(0:n)}*b^(0:n))[n+1]
+}
+binomioNewton(2,1,2)
+```
+

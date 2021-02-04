@@ -1,0 +1,58 @@
+---
+title: "Distribucion-Binomial"
+author: "Facundo"
+date: "22/8/2020"
+output: html_document
+---
+
+luego de varios ensayos de Bernoulli , podemos ver el numero de exitos o fracasos.
+
+Bernoulli es un caso (solo 1) de la binomial.
+
+Binomial = La suma de las repeticiones de los ensayos
+
+
+dbinom(x,size,prob) (densidad)
+pbinom(q,size,prob) (distribucion)
+qbinom(p,size,prob) (quantil)
+rbinom(n,size,prob) (genera numeros aleatorios)
+
+## Funcion de densidad
+Sea $X= B(n=30, p=0.6)$
+
+```{r}
+n=30
+p=0.6
+library(Rlab)
+plot(0:30,dbinom(0:30,size = n,prob=p))#funcion de densidad
+plot(0:n, pbinom(0:n, size=n,prob = p))#funcion de probabilidad acumulada
+qbinom(0.5,size = n,prob = p)
+qbinom(0.25,size = n,prob = p)
+qbinom(0.75,size = n,prob = p)
+hist(rbinom(100000, n,p), breaks = 0:30)
+```
+
+
+## Distribucion geometrica
+
+X es el nuemro de intentos hasta conseguir el primer exito
+
+dgeom(x,prob) (densidad)
+pgeom(q,prob) (distribucion)
+qgeom(p,prob) (quantil)
+rgeom(n,prob) (genera numeros aleatorios)
+
+Se $x=Geom(p=0.1)$ la distribucion que modela la probabilidad de intentar abrir una puerta hasta conseguirla
+
+$$f(k) = (1-p)^{k-1}p$$
+```{r}
+library(Rlab)
+p = 0.1
+plot(0:20,dgeom(0:20,p))
+plot(0:20,pgeom(0:20,p),ylim = c(0,1))
+qgeom(0.5,p) # En 6 intentos deberia abrir
+qgeom(0.75,p) # En 13 intentos deberia abrir
+rgeom(10,p) # probabilidad de las veces que fue y probo cantidad de llaves hasta que abrio
+hist(rgeom(1000,p))
+```
+

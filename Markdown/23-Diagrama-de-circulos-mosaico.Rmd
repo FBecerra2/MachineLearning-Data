@@ -1,0 +1,32 @@
+---
+title: "Diagrama-circular-Mosaico"
+author: "Facundo"
+date: "22/7/2020"
+output: html_document
+---
+# Grafico Circular
+
+```{r}
+x = sample(1:5, size = 12, replace = TRUE)
+x
+pie(table(x),main = "Diagrama circular de la variable x")
+
+pie(table(ans),main = "Diagrama circular de la variable ans")
+```
+
+# Grafico de Mosaico
+```{r}
+plot(table(Sexo,ans),main="Grafico de mosaico de las variables \"Sexo\" y \"ans\"")
+```
+```{r}
+plot(HairEyeColor, main="Grafico de mosaico de la tabla de HairEyeColor", col=c("pink","lightblue"))
+```
+
+```{r}
+#paquete vcd y vcdExtra
+#cotabplot de vcd produce un diagrama de mosaicoparacada tercera variable
+#mosaic3d de vcdExtra produce un diagrama en 3D interactivo
+
+#el mejor es ggplot de tidyverse
+```
+

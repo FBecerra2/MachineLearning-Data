@@ -1,0 +1,22 @@
+Funcion Summary
+Si se aplica a un vector nos devuelve un resumen estadistico con los vamoles
+MIN y MAX del vector , sus tres cuartiles y su media.
+
+
+Al aplicar a un DataFrame, podemos observar rapidamente si hay diferencias notables
+ente sus variables nuemricas.
+
+
+
+La funcion By 
+Se utiliza para aplicar una funcion a algunas columnas de 
+Dataframe segmentandolas segun los niveles de un factor.
+
+
+La sintaxis es -- by(columnas,factor,FUN = funcion)
+
+Haciendo uso de la funcion by y especificando FUN = summary,
+podremos calcular el resumen estadistico anteriormente comentado a
+subpoblaciones definidas por lo sniveles de un factor.
+
+By y aggregate son equivalente.

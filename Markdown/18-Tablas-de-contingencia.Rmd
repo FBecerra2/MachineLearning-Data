@@ -1,0 +1,79 @@
+---
+title: "Tablas de frecuencias unidimensionales"
+author: "Facundo"
+date: "21/7/2020"
+output: html_document
+---
+# Tabla de contingencia
+
+```{r}
+x = sample(1:5, size = 12, replace = TRUE)
+x
+```
+```{r}
+#Tabla de contingencia
+table(x)
+names(table(x))
+
+#si faltan numeros de leves hay que especificarlo por ejemplo
+#z=factor(x, levels=1:7) va a mostrar todos los leves y no solo los que tengan interaccion
+```
+
+```{r}
+datos = factor(c("H","M","M","M","H","H","M","M"))
+table(datos)
+table(datos)["M"]
+sum(table(datos))
+length(datos)
+```
+
+```{r}
+prop.table(table(x))# es igual a table(x)/length(x)
+#Proporcion de veces que salio un numero.   FRECUENCIA RELATIVA
+```
+```{r}
+names(which(table(x)==1)) #que numero se repite 1 sola vez en table(x) 
+names(which(table(x)==max(table(x))))#con esto se puede sacar la MODA
+```
+# Frecuencias Relativas
+
+$$f_i=\frac{n_1}{n}$$
+```{r}
+100*prop.table(table(datos)) #porcentaje
+
+names(table(datos))
+names(which(table(datos)==3)) #Muestra el que se repite 3 veces
+
+moda<- function(d){
+  names(which(table(d)==max(table(d))))
+}
+m_t=moda(datos)
+```
+La moda del dataframe es : `r mt_t`.
+
+# Paquete `gmodels`
+
+```{r}
+library(gmodels)
+sex=factor(c("H","M","M","M","H","H","M","M"))
+ans=factor(c("S","N","S","S","S","N","N","S"))
+CrossTable(sex, ans, prop.chisq = FALSE)
+```
+# Sumas por filas y columnas
+
+```{r}
+tt<- table(sex,ans)
+tt #Frecuencias absolutas
+prop.table(tt) #frecuencias relativas Global
+prop.table(tt, margin = 1) #Frecuencia relativa por sexo
+prop.table(tt, margin = 2) #Frecuencia relativa por respuesta
+
+colSums(tt)
+rowSums(tt)
+colSums(prop.table(tt))
+rowSums(prop.table(tt))
+apply(tt, FUN = sum,MARGIN = 1) #aplicado por fila
+apply(tt, FUN = sqrt,MARGIN = c(1,2)) #Aplicado por elemento
+```
+
+

@@ -1,0 +1,123 @@
+---
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+<!-- Aca sacamos el codigo R -->
+
+```{r include = FALSE}
+knitr::opts_chunk$set(echo=FALSE)
+```
+
+# Ejercicios sobre LaTex,R y Markdown
+
+## Juan Gabriel & Maria Santos
+## 30/12/2018
+
+## Instrucciones
+
+En primer lugar, debeis reproducir este documento tal cual esta.Necesitareis instalar miktex y Texmarker.
+A continuacion de cada pregunta, teneis que redactar vuestras respuetas de manera correctay argumentada, indicando que haceis,porque etc.Si se os pide utilizar instrucciones de R, tendreis que mostrarlas todas en chunks.
+
+El Objetivo de esta tarea es que os familiariceis con los documentos Markdown,las formulas en LaTeX y los chunks de R. Y, de lo ams importante, que os acostumbreis a explicar lo que haceis en cada momento.
+
+
+### Preguntas
+
+### Pregunta 1
+
+Realizad los siguientes productos de matrices en R:
+
+$$A \cdot B$$
+$$B \cdot A$$
+$$(A \cdot B)^t$$
+$$B^t \cdot A$$
+$$(A \cdot B)^{-1}$$
+$$A^{-1} \cdot B^t$$
+
+donde
+
+$$A=
+\begin{pmatrix}
+1&2&3&4\\
+4&3&2&1\\
+0&1&0&2\\
+3&0&4&0
+\end{pmatrix}
+B=
+\begin{pmatrix}
+4&3&2&1\\ 
+0&3&0&4\\
+1&2&3&4\\
+0&1&0&2
+\end{pmatrix}
+$$
+
+Finalmente, escribe haciendo uso de LaTeX el resultado de los dos primeros productos de forma adecuada.
+
+
+$$A \cdot B$$
+
+```{r, eval=TRUE}
+A = matrix(c(1,2,3,4,4,3,2,1,0,1,0,2,3,0,4,0),ncol=4, byrow = TRUE)
+B = matrix(c(4,3,2,1,0,3,0,4,1,2,3,4,0,1,0,2),ncol=4, byrow = TRUE)
+
+A * B
+```
+$$ B \cdot A$$
+```{r, eval=TRUE}
+B * A
+```
+
+
+### Pregunta 2
+Considerad un vector los numeros de vuestros DNI y llamadlo dni.
+Definid el vector en R. Calculad con R el vector DNI al cuadrado,la raiz cuadrada del vector DNI y, por ultimo, la suma de todas las cifras del vector DNI.
+Finamente, escribid todos estos vectores tambien a Latex.
+
+#### DNI: 35465789
+Raiz del vector $\sqrt{dni}$=
+```{r, eval=TRUE}
+dni = c(3,5,4,6,5,7,8,9)
+
+round(sqrt(dni),2)
+```
+
+Suma de los elementos del vector.
+```{r, eval=TRUE}
+sum(dni)
+```
+
+
+### Pregunta 3
+
+Considerad el vector de las letras de vuestro nombre y apellido. Llamadlo name.
+
+#### Nombre = FACUNDO BECERRA
+
+Definid dicho vector en R. Calculad el subvector que solo contenga vuestro nombre. Calculad tambien el subvector que contenga solo vuestro apellido. Ordenarlos alfabeticamente. Cread una matriz con este vector.
+Redactad todos vuestros resultados y utilizad LaTeX cuando pertoque.
+
+
+```{r, eval=TRUE}
+name = c("F","A","C","U","N","D","O","B","E","C","E","R","R","A")
+nombre=name[1:7]
+nombre
+
+apellido =name[8:length(name)]
+apellido
+
+ordenado= sort(name)
+ordenado
+
+mat = matrix(c(name),ncol = 7, byrow = TRUE)
+mat
+```
+$$
+\begin{pmatrix}
+F&A&C&U&N&D&O\\ 
+B&E&C&E&R&R&A\\
+\end{pmatrix}
+$$
+

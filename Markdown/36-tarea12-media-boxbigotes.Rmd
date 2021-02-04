@@ -1,0 +1,48 @@
+---
+title: "Tarea-12"
+author: "Facundo"
+date: "5/8/2020"
+output: html_document
+---
+
+```{r}
+df=read.table("Curso/Data Science/Markdown/data/grades.txt")
+head(df)
+str(df)
+dfnota=round(sort(df$nota),2)
+dfnota
+mean(dfnota)
+```
+```{r}
+round(summary(dfnota),2)
+	
+```
+
+```{r}
+as.numeric(names(which(table(df$nota)==max(table(df$nota)))))
+
+```
+```{r}
+summary(df$nota, df==df, FUN=sum)
+```
+
+```{r}
+by(df[,c(1,2)],df$estudio, FUN = summary)
+
+```
+```{r}
+by(df[,c(1,2)],df$estudio, FUN = var, na.rm=FALSE)
+```
+
+
+
+
+
+```{r}
+boxplot(nota~estudio, data = df, col="lightblue",xlab="Notas", ylab="Materias",main="Grafico de notas y materias")
+medias=aggregate(nota~estudio, data=df,FUN = mean)
+points(medias, col="red",pch=15)
+```
+
+
+

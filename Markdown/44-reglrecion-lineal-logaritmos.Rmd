@@ -1,0 +1,116 @@
+---
+title: "Regresion lineal"
+author: "Facundo"
+date: "17/8/2020"
+output: html_document
+---
+
+## Regresion lineal
+
+```{r}
+body = read.table("Curso/Data Science/Markdown/data/bodyfat.txt", header = TRUE)
+head(body,3)
+```
+```{r}
+body2 = body[,c(2,4)] # tomamos todas las filas pero solo las columnas 2 y 4 
+names(body2)=c("Grasa","Peso") #Cambiamos los nombres de las columnas
+str(body2)
+```
+```{r}
+plot(body2)
+```
+# Formula Regresion Lineal (lineal model[lm]- modelo lineal)
+### Va primero la Y y luego la X
+'$$lm(y~x)$$'
+
+lm(y~x, data = dataframe) Esta es la funcion que se usa para modelo lineal
+
+```{r}
+lm(body2$Peso~body2$Grasa) # Opcion uno
+
+lm(Peso~Grasa, data = body2)# Opcion dos
+```
+
+# La formula de Regresion Lineal es 
+
+y=2,151x +137.738 
+
+
+```{r}
+plot(body2)
+abline(lm(Peso~Grasa, data = body2),col="purple")
+```
+
+Cando le aplicamos un summary a lm no s muestra los contenidos de este objeto, Entre ellos Multiple R-squared.
+
+```{r}
+summary(lm(Peso~Grasa, data = body2))
+```
+
+```{r}
+summary(lm(Peso~Grasa, data = body2))$r.squared
+```
+
+
+#Escalas Logaritmias
+
+Escala lineal = Estan igualmente espaciadas
+
+Escala logaritmica = Un eje en escala logaritmica represeta el logaritmo de sus valores en escala lineal.
+
+Escala semi logaritmica =cuando el eje de abcisas esta en escala lineal y , el de ordenadas en escala logaritmica.
+
+Escala doble logatmica cuando ambos ejes estan en escala logaritmica.
+
+
+ley aproximadamente exponencial
+
+ley aproximadamente potencial
+
+
+# Ejercicio relaciones exponenciales
+
+```{r}
+dep = c(1.2,3.6,12,36)
+ind = c(20,35,61,82)
+
+plot(ind,dep, main="Escala lineal")
+
+plot(ind,dep, log="y", main = "Escala semilogaritmica")
+```
+```{r}
+lm(log10(dep)~ind)
+```
+```{r}
+summary(lm(log10(dep)~ind))$r.squared
+```
+```{r}
+plot(ind,dep, main="Curva de Regresion Lineal")
+curve(1.054^x*0.468,add = TRUE, col="purple")
+```
+
+
+```{r}
+tiempo = 1:10
+gramos = c(0.097,0.709,2.698,6.928,15.242,29.944,52.902,83.903,120.612,161.711)
+d.f= data.frame(tiempo,gramos)
+
+```
+
+```{r}
+plot(d.f)
+plot(d.f,log="y")
+plot(d.f, log="xy")
+```
+
+```{r}
+lm(log10(gramos)~log10(tiempo),data=d.f)
+
+summary(lm(log10(gramos)~log10(tiempo),data=d.f))$r.squared
+```
+
+```{r}
+plot(d.f)
+curve(x^(3.298)*0.081,add = TRUE, col="purple")
+```
+

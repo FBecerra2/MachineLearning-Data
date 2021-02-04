@@ -1,0 +1,35 @@
+---
+title: "Diagrama de barras"
+author: "Facundo"
+date: "22/7/2020"
+output: html_document
+---
+
+```{r}
+Sexo=factor(c("H","M","M","M","H","H","M","M"))
+barplot(table(Sexo),col = c("lightblue","pink"),main = "Diagrama de barras de las frecuncias absolutas\n de la variable\"Sexo\"")
+```
+
+```{r}
+ans=factor(c("S","N","S","S","S","N","N","S"))
+barplot(prop.table(table(ans)), main = "Diagrama de barras de frecuencias relativas\n de la variable\"Respuestas\"")
+
+#admite funciones plot xlab, ylab.
+```
+
+```{r}
+par(mfrow=c(1,2))
+barplot(table(ans), col=c("green"))
+barplot(table(ans), col=c("red","blue"))
+```
+
+```{r}
+barplot(table(x),horiz = TRUE)
+```
+
+```{r}
+barplot(table(Sexo,ans), legend.text = TRUE)
+barplot(table(Sexo,ans),beside=TRUE, legend.text = TRUE)
+barplot(table(ans,Sexo),beside = TRUE,names=c("Men","Women"),col =c("yellow","lightblue") , legend.text = c("No","Yes"))
+```
+

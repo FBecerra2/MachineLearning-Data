@@ -1,0 +1,62 @@
+---
+title: "Medidas de posicion"
+author: "Facundo"
+date: "30/7/2020"
+output: html_document
+---
+
+## Medidas de piscion
+
+```{r}
+set.seed(260798)
+dado=sample(1:4,50,replace=TRUE)
+set.seed(NULL)
+
+length(dado)
+```
+
+```{r}
+dado = sort(dado) #Ordenamos de menor a mayor
+dado
+```
+
+```{r}
+df.dado = data.frame(Puntuacion= 1:4,
+                     Fr.abs= as.vector(table(dado)),
+                     Fr.rel= as.vector(round(prop.table(table(dado)),2)),
+                     Fr.acu= as.vector(cumsum(table(dado))),
+                     Fr.racu= as.vector(round(cumsum(prop.table(table(dado))),2)))
+
+df.dado
+```
+
+Si nos piden el Cuantil ($$Q_0.3$$), sabemos que es el primer elemento de la lista d elas frecuencias relativas acumuladas es mayor o igual a 0.3, en este caso corresponde a la puntuacion 1.
+
+La mediana es la primera Puntuacion que pasa de 0.5 en la columna de frecuencia relativa acumulada.
+
+
+
+Si nos piden el cualtil 0.3, $$Q_0.3$$, seri ael primer elemento de dicha lista tal que fuera mayor o igual que, como minimo, el 30% de los datos. Si calculamos el 30% de 50 nos da 15, que eso nos dice que eel cuantil que buscamos esta en al posicion 15 de la lista ordenada.
+
+```{r}
+dado[15]
+```
+## Ejemplos del uso de Quantile
+
+```{r}
+set.seed(0)
+dados2=sample(1:6,15,replace=TRUE)
+dados2
+set.seed(NULL)
+```
+```{r}
+quantile(dados2,0.25) #25% Primer quantil
+```
+
+
+```{r}
+quantile(dados2,0.8)
+```
+
+
+

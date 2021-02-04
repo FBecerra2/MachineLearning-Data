@@ -1,0 +1,107 @@
+---
+title: "Construir Data Frame"
+author: "Facundo"
+date: "16/7/2020"
+output: html_document
+---
+# Crear un Data frame
+
+```{r}
+gender =  c("H","M","H","M","M")
+age =     c(12, 43, 45, 76, 87)
+family =  c( 2,  3,  4,  4,  1)
+
+df = data.frame(genero=gender, edad=age, familia=family, stringsAsFactors = TRUE)
+
+row.names(df) = c("Juan","Juana","Jose","Josefa","Maria")
+df
+str(df)
+
+#en consola pongo fix(df) te abre una ventana para cambiar un dato del data frame de forma visual
+#d.f[num_fila,] = c(...) para añadir una dila a un data frame tine que ser un vector igual al que ya esta en el DF
+
+#Es mejor hacer
+#df = rbind(df,c("H", 30,1)) //rbind usa la ultima fila disponible
+
+#rbind es row bind
+#cbind es col bind
+#df$NOMBREcolumna c(dato1,dato2,dato3) agrega una columna con esos datos
+```
+# Cambiando tipos de datos
+
+<!--
+as.character(df) / (df$columna) pasa a palabras los datos
+as.factor   (df) / (df$columna) pasa a factor los datos
+as.interger (df) / (df$columna)pasa a numeros enteros los datos
+as.numeric  (df) / (df$columna)pasa a numeros reales los datos
+-->
+
+
+# Sub DataFrame
+<!--
+droplevels(df) borra los niveles sobrantes de todos los factores.
+
+select(df, parametros)Que queremos extraer de un DF
+  parametros:
+            starts_with("x") extraer del DF las variables cuyos nombres empiezan con "x"
+            ends_with("x") extraer del DF las variables cuyos nombres terminen con "x"
+            y extraer del DF las variables cuyos nombres contengan con "x"
+            se necesita el paquete dplyr o mejor TIDYVERSE
+            
+            subset(df, condicion,select = Columnas) extrae las filas que cumplen ka condicion- Natural de R
+-->
+
+```{r}
+
+library(dplyr)
+iris_petal = select(iris, starts_with=("Petal"))
+head(iris_petal)
+```
+
+
+# Aplicando funciones a data frame
+<!--
+
+supply(df, funcion) para aplicar una funcion a todas las columnas de un DF
+    na.rm=TRUE para que no devuelva NA en un valor NA
+
+aggregate(variables~factors,data=df,FUN=funcion) para aplicar la funcion a variables de un DF -
+  Para aplicar la funcion a mas de una variable, hay que agruparlas un cbind
+  
+  si las queremos separar las variables mediante mas de un factor, hay que agruparlas con signo +
+-->
+
+# Funciones en Data Frame
+
+```{r}
+str(iris)
+sapply(subset(iris,select=1:4), mean)
+sapply(iris[,1:4], sum)
+
+f = function(x){sqrt(sum(x^2))}
+sapply(iris[,1:4], f)
+```
+
+```{r}
+aggregate(Sepal.Length ~ Species,data=iris , FUN=mean, na.rm= TRUE) #media de longitud de sepalos
+
+aggregate(cbind(Sepal.Length, Petal.Length) ~ Species,data=iris , FUN=mean, na.rm= TRUE)
+```
+
+```{r}
+head(mtcars)
+str(mtcars)
+mtcars$cyl = as.factor(mtcars$cyl)
+mtcars$gear = as.factor(mtcars$gear)
+mtcars$carb = as.factor(mtcars$carb)
+str(mtcars)
+aggregate(mpg~cyl+gear+carb, data = mtcars, FUN = mean, na.rm = TRUE)
+```
+
+```{r}
+#Hacer esto en la consola para pasarlo a variable global
+attach(mtcars)
+#Con esto lo sacamos de la variable Global
+detach(mtcars)
+```
+

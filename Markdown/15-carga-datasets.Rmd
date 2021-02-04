@@ -1,0 +1,59 @@
+---
+title: "Carga-de-dataframes"
+author: "Facundo"
+date: "15/7/2020"
+output: html_document
+---
+```{r}
+
+```
+
+# Carga de Ficheros locales
+
+```{r}
+df = read.table("data/bulls.dat",
+                header = FALSE,
+                col.names= c
+                        ("Breed","sale_price","Shoulder",
+                        "fat_free","percent_ff",
+                        "frame_scale","back_fat",
+                        "sale_height","sale_weigth"))
+head(df)
+str(df)
+#header es para los nombres de columnas por defecto esta en TRUE
+#col.names especifica los nombres de las coumnas
+#sep es para especificar el separador ej : sep = ""-"," 
+#dec separador decimal ej: dec = "."
+
+```
+
+# Factores en un DataFrame DF
+```{r}
+# stringAsFactors=FALSE prohibir la transformacion de las columnas de palabras.
+#
+
+df2 = read.table("data/olive.dat",
+                 stringsAsFactors = FALSE,
+                 header = TRUE)
+str(df2)
+```
+# Leer diferentes tipos de Ficheros
+
+```{r}
+##read.table(textConnection(getURL("URL HTTPS")))
+#read.csv() importa formato CSV
+#read.xls o read.xlsx  para importar excel
+#read.mtb() para importar tablas de datos Minitab."Se necesita el paquete foreign"
+#read.spss() importar tablas de datos SPSS, Se necesita el paquete foreign
+```
+# Exportar Ficheros Guardar un DF=DataFrame
+<!--write.table(df, file=''): para exportar un data frame a un fichero
+EJ:
+write.table(students, file="StudentData", dec=".")
+students2 = read.table("studentsData", header = TRUE)
+str(students2)
+
+-->
+
+
+

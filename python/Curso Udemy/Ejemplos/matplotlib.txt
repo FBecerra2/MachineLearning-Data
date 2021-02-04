@@ -1,0 +1,114 @@
+######################################################################################
+ Importa el mathplotlib y le pone un alias plt					 #####
+######################################################################################
+
+%matplotlib inline
+import matplotlib.pyplot as plt
+
+######################################################################################
+Crear grafico y sus Opciones							 #####
+######################################################################################
+
+plt.plot(x)      		-Arma el grafico de X
+plt.plot(x,y)			-Arma el grafico con valores en X y en Y
+
+#"r" /"g" /"y" /"b" /"k"	-Le da color los puntos de intersecion de (x,y) o a las lineas - rojo / verde / amarillo / negro
+#"o" 				-Coloca CIRCULOS en las intersecciones se le puede dar color con los colores de arriba
+#market="+"			-Coloca + en las intersecciones
+#linestyle="-."	/"--" /"^"	-Cambia la linea recta por "-.-.-.-.-.-.-.-.-" / "-------------------" / ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+#linewidth=2.0			-Grosor de la linea
+#lw=2.0				-Igual al de arriba
+#alpha = 0.2			-Opacidad de la linea
+#x="year"			-Agregar el nombre al eje X
+#y = "deads"			-Agregar el nombre al eje y
+#figsize=(10,8)			-Agregar alto y ancho del grafico
+
+
+######################################################################################
+Extraer DataFrame							 	 #####
+######################################################################################
+
+my_fig.savefig("dataframe/data_frame_plot.png")   -Extraer DataFrame
+
+######################################################################################
+Titulo del histograma							 	 #####
+######################################################################################
+
+plt.title(r"Histograma de CI $N\ (\mu,\sigma)$")
+
+######################################################################################
+Configurar eje X 							 	 #####
+######################################################################################
+
+plt.xlabel("nobre del eje")	-Nombre del eje
+
+#fontsize=14			-Tamaño de la fuente
+#color = r" /"g" /"y" /"b"	-Le da color a las letras - rojo / verde / amarillo
+
+plt.xscale("linear")		-Escala lineal en el eje X
+
+plt.gca().xaxis.set_minor_formatter(NullFormatter()) -Borra formato del eje X
+
+######################################################################################
+Configurar eje y							 	 #####
+######################################################################################
+plt.ylabel("nombre del eje Y")
+
+#fontsize=14			-Tamaño de la fuente
+#color = r" /"g" /"y" /"b"	-Le da color a las letras - rojo / verde / amarillo
+
+plt.yscale("log" / "logit")	-Escala logatimica / logaritmica simetrica en eje Y
+
+plt.gca().yaxis.set_minor_formatter(NullFormatter()) -Borra formato del eje Y
+######################################################################################
+Longitud de los Ejes							 	 #####
+######################################################################################
+
+plt.axis([0, 6, 0,20])		-de 0,6 son le eje X de 0,20 el eje Y
+
+######################################################################################
+Prodiedades en las dos lineas							 #####
+######################################################################################
+
+plt.setp(lines, color = "r", linewidth=2.0)   - aplica la modificacion las graficas que realices
+
+######################################################################################
+Muestra varios graficos								 #####
+######################################################################################
+plt.figure(1) 			-Figure es opcional si haces una figura conjunta
+#figsize(10,6)			-Me da el alto y largo de la figura
+#dpi=90				-Calidad del grafico
+#
+
+plt.subplot(211)
+#subplot			-Indica que es uno de los plot a mostrar
+#(211)				-2 filas, 1 columna, 1er plot a mostrar
+#aca va el plot 1		plt.plot(x1, f(x1),'ro',x2, f(x2),'k')
+
+#(212)				-2 filas, 1 columna, 2 plot a mostrar
+#aca va el plot 2		plt.plot(x2, f(x2),'g--')
+
+plt.subplots_adjust(top=0.92, bottom = 0.08, left =0.1, right =0.95, hspace=0.6, wspace=0.50)
+# con eso acomodas las figuras, hspace alto y wespace el ancho
+######################################################################################
+Texto dentro del grafico							 #####
+######################################################################################
+
+plt.annotate('Maximo local', xy=(4*np.pi,1), xytext = (15, 1.5), arrowprops=dict(facecolor = "black",shrink=0.05))
+
+#annotate le integra un texto al grafico (Maximo total)
+#xytext las coordenadas del texto
+#arrowprops pone una flecha
+##facecolor
+##shrink el tamaño de la flecha
+
+######################################################################################
+Texto dentro del histograma							 #####
+######################################################################################
+
+plt.text(40,400, r'$\mu = 100,\ \sigma=20$')
+
+######################################################################################
+Mostrar el grafico								 #####
+######################################################################################
+plt.show()			-Muestra el grafico

@@ -1,0 +1,20 @@
+#c(1,2,3,4,5)   			-Define un vector
+#scan()  				-Define un vector- se puedo poner un dataseet local o URL entre parentesis
+#fix(x)  				-Para modificar visualmente el vector X
+#rep(a,n)  				-Para definir un vector constante que contien el dato, a repetido n veces
+#seq(5,60, by = 5)			-Progresion Aritmetica ir de 5 a 60 de 5 en 5.
+#seq(4,35, length.out = 7)		-Progresion Aritmetica ir de 4 a 35 en 7 saltos
+#sapply(vector, FUN =funcion)		-Pasa una funcion a vector
+#length(x)				-Calcula longitud del vector
+#max(x)					-Maximo del vector
+#min(x)					-Minimo del vector
+#sum(x)					-Suma de las entradas del vector
+#prod(x)				-Calcula el producto de las entradas del vector
+#mean(x)				-Calcula la media Aritmetica de las entradas del vector(valor medio)
+#diff(x)				-Calcula el vector formado por la diferencia sucesiva entre entradas del vector original.
+#comsum(x)				-La suma de las entradas de x hasta su posicion (suma el primero mas el segudo y ese resultado con e siguiente)
+#sort(x)				-Ordena el vector en orden natural
+#rev(x) 				-Invierte el orden de los elementos del vector x
+#x[length(x)]				-Mustra el ultimo vector
+#x[length(x)-1]				-Anteultimo vector
+#x = seq(3,50, by = 3,5)		-Crear un subvector

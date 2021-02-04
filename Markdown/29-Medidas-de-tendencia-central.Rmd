@@ -1,0 +1,29 @@
+---
+title: "Medidas de tendencia central"
+author: "Facundo"
+date: "29/7/2020"
+output: html_document
+---
+
+#Medidas de tendencia Central
+
+```{r}
+edad = c(11,13,15,18,23,25,25,26,27,29,29,30,30,32,33,40,40,40,42,56)
+
+sort(edad)  #Ordenada
+
+table(edad) #Frecuencia absoluta
+length(edad) #longitud vector
+
+(sum(edad))/2
+
+mean(edad) #media aritmatica
+
+median(edad) # devuelve la mediana
+
+
+as.numeric(names(which(table(edad)==max(table(edad))))) # La moda
+
+#as.numeric convierte en valor nuemrico
+```
+

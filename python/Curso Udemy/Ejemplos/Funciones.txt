@@ -1,0 +1,31 @@
+######################################################################################
+Funciones									 #####
+######################################################################################
+
+def suma(x, y):				
+    return x+y				-X, y son las variables que les pasas a la funcion
+
+
+def saludar():
+    name = str(input("Introduce tu nombre"))
+    if name:
+        print ("Hola "+name)
+    else:
+        name = str(input("Introduce tu nombre"))
+    return				
+					-Funcion con if
+
+
+
+def buscaPares():
+    for x in range(10):
+        if x % 2 == 0:
+            return
+        print("Fin de la ejecucion")	-Saber si es par o no
+
+
+
+def sumaResta(x, y):
+    suma = x+y
+    resta = x-y
+    return (suma, resta)		-Mostrar dos resultados

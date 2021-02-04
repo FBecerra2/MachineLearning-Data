@@ -1,0 +1,40 @@
+---
+title: "Ejemplo jirafas"
+author: "Facundo"
+date: "24/7/2020"
+output: html_document
+---
+Frecuencia Absoluta-> Fr.Abs = table(longitud)
+
+
+Frecuencia relativa-> prop.table(Fr.Abs)
+
+proporcion por columna.
+
+
+Fr.Acum = cumsum(Fr.Abs) -> Fracuencia Acumulada
+
+Fr.Racum = cumsum(Fr.Relativa)
+
+apply(tabla,margin= 1-2, FUN=cumsumm)
+margin =1 Frecuencia acumula por filas
+marfin = 2 Frecuencia acumulada por columnas
+
+```{r}
+crabs = read.table("data/datacrab.txt", header = TRUE)
+crabs = crabs[,-1] #omimte la primera columna
+str(crabs)
+```
+
+#convertir int en factor, para hacerlo ordinales
+```{r}
+table(crabs$width)
+```
+
+```{r}
+intervalos=cut(crabs$width, breaks = c(21,25,29,33,Inf),right = FALSE,labels = c("21-25","25-29","29-33","33-...")) # cambia de Numericas a Ordinales
+
+crabs$width.rank = ordered(intervalos)
+str(crabs)
+```
+

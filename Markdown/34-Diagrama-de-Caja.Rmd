@@ -1,0 +1,76 @@
+---
+title: "Diagrama de caja"
+author: "Facundo"
+date: "2/8/2020"
+output: html_document
+---
+
+# Diagrama de cajas y bijotes
+
+```{r}
+set.seed(0)
+dados2=sample(1:6,15,replace=TRUE)
+set.seed(NULL)
+dados2
+boxplot(dados2,dados,dado)
+
+set.seed(260798)
+dado=sample(1:4,50,replace=TRUE)
+set.seed(NULL)
+
+dados=c(6,2,3,4,6,2,6,6,4,4,1,2,2,5,3)
+```
+
+# Diagrama de caja en un Data Frame
+
+```{r}
+body= read.table("data/bodyfat.txt",header = TRUE)
+boxplot(body[,7:9], names=c("Pecho","Abdomen","Cadera"))
+```
+# Diagrama de caja en un Data Frame (Circunferencia en funcion del tipo de arbol)
+
+```{r}
+Orange
+boxplot(circumference~Tree,data= Orange, ylab = "Circunferencia del tronco (mm)", main= "Boxplot de los naranjos en funcion del tipod e arbol", col="red")
+
+
+#Parametro especifico -> notch = TRUE, Deja una solapa en la mediana
+```
+
+```{r}
+boxplot(iris$Sepal.Length~iris$Species)
+boxplot(Sepal.Length~Species, data =iris, notch=TRUE)
+
+
+boxplot(Sepal.Width~Species, data=iris, ylab="Anchura del sepalo. (cm)")
+medias=aggregate(Sepal.Width~Species, data=iris,FUN = mean)
+points(medias, col="pink",pch=15)
+
+#points agrega un punto en el grafico del boxplot
+#Parametro especifico -> notch = TRUE, Deja una solapa en la medianay
+```
+
+## Estructura interna de Boxplot (str)
+
+```{r}
+str(boxplot(circumference~Tree,data= Orange))
+
+#De aqui sale 
+#n Candidad de muestras por boxplot
+
+#STATS= nos devuelve los valores,Binf, Q0.25, Q.05,Q0.75, Bsup.
+
+#OUT = Nos devuelve los valores atipicos.
+
+#Group= Indica que diagrams pertenecen alos outliers
+```
+
+```{r}
+boxplot(circumference~Tree,data= Orange)$Stats
+boxplot(circumference~Tree,data= Orange)$out
+boxplot(circumference~Tree,data= Orange)$group
+```
+
+
+
+

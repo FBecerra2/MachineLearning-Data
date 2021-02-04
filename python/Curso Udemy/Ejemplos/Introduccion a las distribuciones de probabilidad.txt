@@ -1,0 +1,17 @@
+Dada cualquier variable aleatoria,en Python tenemos las mismas cuatro funciones
+que en r, sin que su nombre dependa de la misma:
+
+-pmf(k,...) o pdf(x,...) Funcion de probabilidad(k) o de densidad f(x)
+de la variable aleatoria para los valores k o x del dominio.
+
+-cdf(p,...) Funcion de distribucion F(x) de la variable aleatoria 
+para el valor k del dominio. -Funcion de distribucion acumulada-
+
+
+-ppf(p,...) Cuantil p-esimo de la variable aleatoria (el valor x mas 
+pequeño tal que F(x)>=p)
+
+
+-rvs(size,...) Generador de size observaciones siguindo la distribucion
+ de la variable aleatoria.-Random value generator-
+

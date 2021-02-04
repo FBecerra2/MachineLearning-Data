@@ -1,0 +1,34 @@
+Medidas de Tendencia Central
+Es un valor representativo a todas las observaciones. Por Ejemplo:
+
+########################################################################################################
+-Media Aritmetica o valor medio: Se suman todos los valores y se divide por el total de observaciones.
+mean(edad)
+
+-Media aritmetica Ponderada:Ejemplo 1 prueba vale el 40% y la otra 60% multiplico el puntaje de examen por 4 el primero
+y por 6 el segundo y divido por la suma que es 10.
+
+-Media Armonica: Conjunto de nuemros que se definene en relacion con alguna unidad: Ej la velocidad
+
+-Media Generalizada
+
+-Media de una funcion
+
+#########################################################################################################
+-Mediana, Valor central en la lista ordenada de observaciones.
+median(edad)
+	Los datos se ordenan de menor a mayor.
+	-Si el vector es par se hace lo siguiente:
+		
+		v = longitud del vector
+			
+			(x(n/2)+x(n/2+1))/2  (Devuelve las posiciones donde estan los nuemros centrales) 
+
+	-Si el vector es impar es el dato que esta en el medio, se hace lo siguiente:
+
+			x(v+1/2) (Devuelve la posicion donde esta el dato central)
+
+
+#########################################################################################################
+-Moda	Es el valor o los valores de maxima frecuencia. (El o los que mas se repiten)
+	as.numeric(names(which(table(edad)==max(table(edad)))))	

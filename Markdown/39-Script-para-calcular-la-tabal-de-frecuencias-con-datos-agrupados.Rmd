@@ -1,0 +1,50 @@
+---
+title: "Script para calcular la tabal de frecuencias con datos agrupados"
+author: "Facundo"
+date: "9/8/2020"
+output: html_document
+---
+hist(x, breaks=...,right=FALSE, plot=FALSE)$count
+
+# Automatizar Script de frecuencias
+
+```{r}
+TablaFrecs= function(x,k,A,p){
+  L = min(x)-p/2+A*(0:k)  #Genracion de los intervalos
+  x_cut=cut(x, breaks = L,right = FALSE) #divide los intervalos en x 
+  intervals=levels(x_cut) #Extrae lo niveles del factor x_cut
+  mc=(L[1]+L[2])/2+A*(0:(k-1)) #Punto intermedio del intervalo, marca de clase
+  Fr.Abs = as.vector(table(x_cut)) # Frecuencias absolutas de x_cut
+  Fr.rel = round(Fr.Abs/length(x),4) #Frecuencia relativa
+  Fr.cum.abs = cumsum(Fr.Abs) # Frecuencia acumulada absoluta
+  Fr.cum.rel = cumsum(Fr.rel) # Freecuencia relativa acumulada
+  tabla = data.frame(intervals,mc,Fr.Abs,Fr.cum.abs,Fr.rel,Fr.cum.rel) # armammos el Data Frame
+  tabla
+}
+```
+
+
+```{r}
+TablaFrecs.L = function(x,L,V){
+  x_cut = cut(x,breaks = L, right = FALSE, include.lowest = V)
+  intervals = levels(x_cut)
+  mc = (L[1:(length(L)-1)]+L[2:length(L)])/2
+  Fr.Abs = as.vector(table(x_cut)) # Frecuencias absolutas de x_cut
+  Fr.rel = round(Fr.Abs/length(x),4) #Frecuencia relativa
+  Fr.cum.abs = cumsum(Fr.Abs) # Frecuencia acumulada absoluta
+  Fr.cum.rel = cumsum(Fr.rel) # Freecuencia relativa acumulada
+  tabla = data.frame(intervals,mc,Fr.Abs,Fr.cum.abs,Fr.rel,Fr.cum.rel) # armammos el Data Frame
+  tabla
+}
+```
+
+la tabla de frecuencias de la longitud de lso petalos de Iris es :
+```{r}
+TablaFrecs(petals,k=6,A=1,p =0.1) #k =
+
+```
+
+```{r}
+TablaFrecs.L(petals, L=c(1,3,4,5,5.5,6,6.5,7), V =F)
+```
+

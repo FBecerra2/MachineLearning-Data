@@ -1,0 +1,45 @@
+---
+title: "Agrupando los datos con R - CUT"
+author: "Facundo"
+date: "9/8/2020"
+output: html_document
+---
+
+Cut sirve para agrupar un vector de datos numericos y codificar sus valores.
+
+cut(x, breaks=....,lanels=..., right=...)
+
+X = es el vector numerico, variable cuantitativa, columna de un DataFrame
+
+breaks = Factor numerico formado por los extremos de lso intervalos en los que queremos agrupar nuestros datos. Puede ser un numero K
+
+labels= un vetir que contiene las etiquetas de los intervalos. 
+labels=False tenemos los intervalos eyiquetados por medio de los numeros naturales correlativos.
+
+Right es un parametro igualado a FALSE hace que los intervalos sean cerrados a la izquierda y abiertos a ala derecha.
+
+include.lowest es igualado a TRUE combinado con right = False hace ue el ultimo intervalo sea cerrado.
+
+
+```{r}
+irisdf=iris
+petals=irisdf$Petal.Length
+cut(petals,breaks = 5, right = FALSE)
+cut(petals,breaks = ceiling(sqrt(length(petals))),right = FALSE)
+
+cut(petals,breaks = c(1,2,3,4,5,6,7),right = FALSE)
+
+
+cut(petals,breaks = 5, right = FALSE, labels = FALSE)
+```
+
+
+```{r}
+irisdf$div5=cut(petals,breaks = 5, right = FALSE,
+    labels = c("Peq","Norm","Gran","XGran","Gigan"))
+irisdf
+#Agregar una colmna al DF
+```
+
+# Agrupar datos
+

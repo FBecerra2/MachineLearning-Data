@@ -1,0 +1,36 @@
+---
+title: "Insecticida"
+author: "Facundo"
+date: "2/8/2020"
+output: html_document
+---
+
+# Analisis de spray insecticida
+## Que insecticida comprar?
+
+```{r}
+data= InsectSprays
+head(data)
+str(data)
+```
+
+
+
+```{r}
+by(data$count,data$spray,FUN = summary)
+```
+
+#desviacion tipica
+
+```{r}
+aggregate(count~spray, data=data, FUN = sd)
+```
+
+```{r}
+boxplot(count~spray, data = data, col="lightgreen",xlab="Tipo de spray", ylab="Incectos muertos")
+
+#A,B,C = Matan mas bicho s tienen ,mayor variailidad
+#C,D,E= Matan un nuemro de specifico de bichos y tiene menos variabilidad , lo que nos indica que podemos predecir cuantos bichos pueden matar con mas certeza.
+
+```
+

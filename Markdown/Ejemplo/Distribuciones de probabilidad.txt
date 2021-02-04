@@ -1,0 +1,33 @@
+-Experimento aleatorio -> Efectuado en las  mismas condiciones da resultados 
+diferentes: lanzar moneda o dado por ejemplo,
+
+-Suceso elemental: Cada uno de los posibles resultados del experimento.
+##suceso : subconjunto del espacio muestral
+##Suceso total o seguro - Sacar una cara del 1 al 6 en un dado
+##Suceso vacio o imposible - Sacar un 7 en un dado.
+
+### Operaciones de Sucesos
+####Suceso Unios , ser par o mayor que 4
+####Suceso interseccion , ser par y mayor que 4
+####Suceso complementario , la inversa de lo que solicita 
+####Suceso diferencia , son los elementos pares pero menor que 4.
+####Suceso incompatible ser par e impar a la vez
+
+-Espacio Muestral: Conjunto formado por todos los sucesos elementales del
+experimento aleatorio.
+
+
+
+
+PROBABILIDAD DE UN SUCESO
+Numero entre 0 y 1 que mide la expectativa de que se de este suceso.
+-Probabilidad de sacar un 6 lanzando un dado = 1/6
+-Probabilidad de sacar un 6 en dado de 4 caras = 0
+-Probabilidad de sacar un 6 al lanzar un dado de 20 caras es = 1/20
+
+
+PROBABILIDAD
+
+Sea el espacio muestral de un experimento aleatorio.
+Suponiendo que OMEGA es finito, una probabilidad de que OMEGA es una aplicacion.
+

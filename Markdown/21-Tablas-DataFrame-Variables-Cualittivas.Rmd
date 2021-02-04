@@ -1,0 +1,31 @@
+---
+title: "Bebidas-Energeticas"
+author: "Facundo"
+date: "22/7/2020"
+output: html_document
+---
+
+```{r}
+be=read.table("data/EnergyDrink", header = TRUE)
+str(be)
+head(be,4)
+summary(be) #resumen de las variables
+apply(be, MARGIN = 2,FUN=table) #tabla de frecuencias absolutas para cada uno de los factores
+```
+```{r}
+apply(be, MARGIN = 2,FUN=table)$sexo
+table(be$sexo)
+```
+
+```{r}
+table(be)
+```
+
+```{r}
+table(be[c (1,3)])
+ftable(be)
+```
+
+
+
+

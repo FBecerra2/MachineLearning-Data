@@ -1,0 +1,71 @@
+---
+title: "Histogramas-para-datos-agrupados-141"
+author: "Facundo"
+date: "12/8/2020"
+output: html_document
+---
+
+# Histograma de frecuencia Absoluta
+```{r}
+histAbs = function(x,L){
+  h = hist(x, breaks = L, right = FALSE, freq = FALSE,
+           xaxt= "n", yaxt = "n", col = "lightgray",
+           main ="Histograma de frecuencias absolutas",
+           xlab="Intervalos y marcas de clase",ylab= "Frecuencias absolutas")
+axis(1, at=L)
+text(h$mids, h$density/2, labels=h$counts, col = "purple")
+}
+```
+
+breaks = vector con los extremos de los intevalos o e numero k de intervalos ,se puede calcular el nuemro de clase : "Scott","Sturges".
+
+freq=TRUE , produce un histograma de frecuencias absolutas si los intervalos son todos de la misma amplitud y de frecuencia relativa en caso contrario.
+freq=FALSE nos produce siempre el de frecuencias relativas.
+
+right= Funciona igualq ue en CUT
+
+include.lowest = TRUE tambien funciona como en CUT
+
+tambien se pueden usar las funciones de plot si lo igualamos a FALSE no dibuja epro hace el calculo igual.
+
+hist agrega titulo pero no queda bien si no es en ingles
+
+-breaks - contiene el vector de los extremos de los intervalos
+
+-mids - contiene los puntos medios del intervalo
+-counts - contiene el vector de frecuencias absolutas de los intervalos
+
+-density - contiene el vector de densidades de los intervalos. Estas se correspoden con al altura de las barras del histograma de frecuencias relativas. La densidad  de un intervalo es su frecuencia relativa dividida por su amplitud.
+
+-xaxt= "n", yaxt = "n" -- Especifican que , por ahora, no dibuje los ejes de abcisas y ordenadas.
+
+-axis  dibuja el eje correspondiente al valor de i con marcas en los lugares indicados por el vector definidomediante at.
+Si i = 1, el de abcisas, si i =2 el de ordenadas.
+
+
+
+-text toma h$mind el valor medio del interval, 
+h$density altura de la barra., con freq = FALSE estas alturas  se corresponden con la densidad.
+
+
+#############################################
+
+rug le da una alfombra con mmarcas en todos los valores del vector.
+
+rug jitter añade ruido a los datos de un vector.
+
+
+## Histograma de frecuencias absolutas acumuladas
+
+```{r}
+histAbsCum = function(x,L){
+  h= hist(x, breaks = L,right = FALSE,plot=FLASE)
+  h$density = cumsum(h$density)
+  plot(h, freq = FALSE, xaxt="n", yaxt="n",col="lightgray",
+       main = "Histograma de frecuencias acumuladas",
+       xlab = "Intervalos", ylab = "Frec.Absolutas acumuladas")
+  axis(1,at=L)
+  text(h$mids, h$density/2, labels=cumsum(h$counts), col = "purple")
+}
+```
+

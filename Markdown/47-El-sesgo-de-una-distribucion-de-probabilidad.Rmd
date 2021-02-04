@@ -1,0 +1,16 @@
+---
+title: "El sesgo de una distribucion de probabilidad"
+author: "Facundo"
+date: "19/8/2020"
+output: html_document
+---
+Mide que tan simetrica o asimetrica es la distribucion
+
+Unimodal tiende a la izquiera o a la derecha de la distribucion
+
+Si la curva queda mas a la derecha al centro de donde esta la mayoria d elos valoreas es negativo 
+
+Si la curva queda mas a la izquierda el sesgo sera positivo
+
+
+En Wikipedia esta muy bien

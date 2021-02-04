@@ -1,0 +1,30 @@
+Medidas de posicion de las variables cuantitativas
+
+Estiman que valores dividen las observaciones en unas determinadas proporciones.
+
+Los valores que determinan estas posiciones son conocidos como los cuantiles.
+
+
+##Calcular Cuantiles##
+Si nos piden el Cuantil ($$Q_0.3$$), sabemos que es el primer elemento de la lista d elas frecuencias relativas acumuladas es mayor o igual a 0.3, 
+en este caso corresponde a la puntuacion 1.
+La mediana es la primera Puntuacion que pasa de 0.5 en la columna de frecuencia relativa 
+acumulada.
+
+
+Si nos piden el cualtil 0.3, $$Q_0.3$$, seri ael primer elemento de dicha lista tal que 
+fuera mayor o igual que, como minimo, el 30% de los datos. Si calculamos el 30% de 50 nos da 15, 
+que eso nos dice que eel cuantil que buscamos esta en al posicion 15 de la lista ordenada.
+
+
+		CUANTILES nombre propio:
+
+Cuartiles Q_0.25,  Q_0.5 ,  Q_0.75, son llamados primero segundo y tercer cuantil.
+El primer cuartil es el 25% = 1/4 = una cuarta parte de las observaciones,
+el segundo cuantil 0,5=50%=1/2=2/4 = la midad de las observaciones,(ES LA MEDIANA)
+el tercer cuartil 0.75=75%=3/4 de los datos observados.
+
+
+Los DECILES son los cuantiles con un multiplo de 0.1.
+
+Los PERCENTILES son los cuantiles con un multiplod e 0.01

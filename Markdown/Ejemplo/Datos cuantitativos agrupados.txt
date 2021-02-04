@@ -1,0 +1,46 @@
+
+Diferentes agrupamientos de los datos (no tiene una forma unicmaente)
+
+##########Lo mejor apra ver esto son los histogramas
+Funcion hist en R
+
+##########Regla Raiz cuadrada:	numero de datos = raiz cuadrada de la parte 
+entera y redondeo para arriba
+
+##########Regla de Sturges:	nuemro de datos = 1 + log2 (parte entera) y 
+redondeo para arriba
+
+-nclass.Sturges
+
+##########Regla de Scott, se determina primer la amplitud teorica.
+
+amplitud teorica = 3.5 *desviacion tipica*, -1/3
+
+numero de muestra = max(x) - min(x) / amplitud teorica y redondea para arriba
+
+-nclass.scott
+
+##########Regla de Freedman-diaconis: Se determina primer la amplitud teorica de las clases.
+
+2.(Quartil 0.75 - Quartil 0.25) n-1/3
+
+numero de muestra = max(x) - min(x) / amplitud teorica y redondea para arriba
+
+
+-nclass.FD
+
+
+
+######################################################################
+Extremo de los intevalos
+
+L1 = min(X) -1/2.presicion
+
+A partir de L1 el resro de los intervalos se obtienen de forma recursiva
+
+L2= L1+A
+L3= L2+A
+
+###########Marca de Clase
+
+Xi = (Li +Li +1)/2

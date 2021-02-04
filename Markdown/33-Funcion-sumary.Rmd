@@ -1,0 +1,50 @@
+---
+title: "Funcion Summary"
+author: "Facundo"
+date: "1/8/2020"
+output: html_document
+---
+# Funcion Summary
+
+```{r}
+cangrejos = read.table("data/datacrab.txt",header = TRUE)#cargamso el dataframe
+
+cangrejos = cangrejos[-1] #Eliminamos al primera columna
+summary(cangrejos) #Aplicamos la funcion summary
+
+```
+
+```{r}
+summary(subset(cangrejos, color ==3,c("weight","width")))
+summary(subset(cangrejos, color ==5,c("weight","width")))
+
+#Armo un subset con los cangrejos de colores 3 y 5 y me quedo solo con las columnas "weight"y"width".
+```
+#Funcion By
+
+```{r}
+by (iris[,c(1,3)], iris$Species, FUN = summary)
+
+# Tomo el DF de Iris tengo la columna 1 y3 que corresponde a la longitud de sepalo y petalos, Agrupo por Especie y aplico summary
+```
+```{r}
+aggregate(cbind(Sepal.Length,Petal.Length)~Species, data=iris,FUN=summary, na.rm=TRUE)
+# Tomo las columnas Sepal.Length,Petal.Length, esto es equivalente a by pero se ve feo
+```
+```{r}
+#NA la mayoria de las funciones a lao largo de los temas no funcionan bien con valores NA.
+#Para no tenerlos en Cuenta a la hora de aplicar estas funciones, hay que especificar el parametro na.rm = TRUE en el argunmento de la funcion
+```
+```{r}
+x = c(1,2,3,NA)
+sum(x)
+sum(x ,na.rm=TRUE)
+mean(x)
+mean(x ,na.rm=TRUE)
+var(x)
+var(x ,na.rm=TRUE)
+sd(x)
+sd(x ,na.rm=TRUE)
+```
+
+

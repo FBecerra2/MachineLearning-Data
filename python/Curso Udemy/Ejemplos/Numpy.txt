@@ -1,0 +1,102 @@
+######################################################################################
+NUMPY										 #####
+######################################################################################
+
+L1 = [1,2,3,4,5,6,7,8]  		-Crear una lista
+
+x1 = np.array(L1)			-Convierte la lista en Array
+np.array([[1,2,3,4],[5,6,7,8]])		-Array de tipo matriz
+
+#dtype='float32'			-Admite numeros con coma
+##Tipos de datos para dtype
+##bool_
+##int_, intc, intp, int8, int16, int32, int64
+##uint8,uint16,uint32,uint64  #Entero sin signo
+##float_, float16,float32,float64
+##complex_, complex64,complex128 #(a+bi, a,b  E float_)
+
+np.zeros((3,4))				-Matriz de 3 filas, 4 columnas de 0
+np.ones((4,3))				-Matriz de 4 filas, 3 columnas de 1
+
+np.arange(10) 				-Hace un array de 10 numeros
+np.arange(4,5,0.1) 			-Hace un array entre 4 y 5 de 0.1 en 0.1
+np.arange(10,6,-1)			-Hace una array de 10 a 6 , de manera descendente
+
+np.eye(5) 				-Arma un matriz de 5 filas y 5 columnas
+
+print(MATRIZ.dot(MATRIZB)) 		-Con print saca el cartel array
+	
+MATRIZ.reshape((6,4))			-Re armar la matriz a 6 gilas 4 columnas
+
+np.ravel(MATRIZ) 			-Aplanar la matiz - se usa en Machine Learning
+
+MATRIZ.flatten() 			-Copia la MATRIZ y la aplana.(se hace en una copia)
+
+np.transpose(MATRIZ) 			-Intercambia filas y columnas
+
+np.resize(MATRIZ, (5,3)) 		-Arma la matriz de 5 filas , 3 columnas, si le faltan hace un bucle
+
+np.linspace(1,10,50)			-Arma una array de 1 a 10, con 50 numeros intermedios
+
+######################################################################################
+Propiedades de la matriz							 #####
+######################################################################################
+
+MATRIZ.ndim				-Dimensiones
+MATRIZ.shape				-Muestra las dimensiones (filas,columnas)
+MATRIZ.size				-Cantidad de elemntos en la matriz
+MATRIZ.dtype				-Tipo de datos de la matriz
+MATRIZ.itemsize				-Tamaño peso de cada elemento de la matriz
+MATRIZ.data				-Donde se almacena en la memoria RAM
+MATRIZ[1:3, 0:2] 			-Trae las filas 1:3 u columnas de la 0:2
+MATRIZ[MATRIZ>30]			-Trae del Array los mayores a 30
+MATRIZ[12:24] = 1 			-Del 12 al 24 pone 1
+MATRIZ[13:16] = [6,9,12] 		-Cambia el valor del rango
+MATRIZ[:] =5 				-Cambia todos los elementos a 5
+
+
+######################################################################################
+Copias y Vistas de Array							 #####
+######################################################################################
+
+y = x 					-Cuando modificas y tambien modifica X
+
+z = x.copy()				-Copia la matriz X en Z, al moficar Z no afecta a X
+
+t = x.view()				-Visualizacion de X guardado en t, modificar t no afecta X
+
+
+
+######################################################################################
+Funciones Universales								 #####
+######################################################################################
+
+np.sin(VARIABLE)			-Funcion Seno
+np.cos(VARIABLE)			-Funcion Coseno
+np.tan(VARIABLE)			-Funcion Tangente
+np.exp(VARIABLE)			-Funcion Exponencial
+np.power(3,ARRAY)			-3 elevado a la MATRIZ
+np.power(ARRAY,2) 			-El array a las 2
+np.sum(VARIABLE) 			-Suma toda el array
+ARRAY.sum(axis=0) 				-Suma por columnas
+np.nansum(ARRAY) 			-Suma todo menos los NaN
+np.mean(ARRAY)				-Media del Array
+np.min(ARRAY)				-Muestra el valor minimo
+np.max(ARRAY)				-Muestra el valor maximo
+np.argmin(ARRAY) 			-Muestra la posicion donde esta el valor minimo
+np.argmax(ARRAY) 			-Muestra la posicion donde esta el valor mas alt
+np.random.random((3,5))			-Crea un Array de 3 filas y 5 columnas on numeros aleatorios
+np.random.seed(ARRAY)			-Averiguar
+
+
+
+######################################################################################
+MATRICES NUMPY									 #####
+######################################################################################
+
+
+
+
+
+
+

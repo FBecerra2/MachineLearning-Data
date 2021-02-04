@@ -1,0 +1,55 @@
+---
+title: "Notas de Bachillerato"
+author: "Facundo"
+date: "10/8/2020"
+output: html_document
+---
+
+```{r}
+notas=c(6,0,3,3,8,2,7,9,10,0,8,3,1,10,4,5,10,6,10,8,7,10,5,5,7,9,5,9,5,5,6,2,9,7,5,10,5,6,4,0,10,2,6,1,9,0,9,9,7,6,4,8,9,8,9,4,1,1,9,8,6,0,9,10,2,6,0,5,8,10,3,6,4,3,9,7,3,4,2,1,10,7,6,10,9,0,0,10,2,10,2,1,5,2,3,0,8,0,7)
+```
+### Agrupar notas [0,5) [5,7) ,[7,9),[9,10]
+```{r}
+L=c(0,5,7,9,10) #Definimos vectores de extremos
+notas1= cut(notas,breaks = L,right = FALSE,include.lowest = TRUE)
+print(notas1)
+```
+```{r}
+#Marcas de clase
+MC= (L[1:length(L)-1]+L[2:length(L)])/2
+notas2= cut(notas,breaks = L,labels=MC, right = FALSE,include.lowest = TRUE)
+print(notas2)
+```
+
+```{r}
+notas3=cut(notas,breaks = L,labels = FALSE, right = FALSE,include.lowest = TRUE)
+notas3
+```
+
+```{r}
+notas4=cut(notas,breaks = L,labels =c("Susp","Aprob","Not","Exc"),right = FALSE,include.lowest = TRUE)
+notas4
+table(notas4) #Frecuencia Absoluta
+prop.table(table(notas4)) #Frecuencia relativa
+cumsum(table(notas4))#Frecuencia Absoluta Acumulada
+cumsum(prop.table(table(notas4))) #Frecuencia relativa Acumulada
+
+notasHist=hist(notas,breaks = L,right = FALSE,include.lowest = TRUE,plot = FALSE)
+FAbs=notasHist$count
+FRel=prop.table(FAbs)
+FAbsCum=cumsum(FAbs)
+FRelCum=cumsum(FRel)
+```
+## Creando el dataframe de notas4
+```{r}
+intervalos= c("[0,5)","[5,7)","[7,9)","[9,10]")
+calification = c("Suspenso","Aprobado","Notable","Excelente")
+marcas = notasHist$mids
+tabla.Fr=data.frame(intervalos,calification,marcas,FAbs,FAbsCum,FRel,FRelCum)
+tabla.Fr
+```
+
+```{r}
+cut(notas,breaks = 4,right = FALSE,include.lowest = TRUE)
+```
+
